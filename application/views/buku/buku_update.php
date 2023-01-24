@@ -41,7 +41,7 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Nama Kategori Buku</label>
                                 <div class="col-md-10">
-                                    <select name="kd_kategori" required class="form-control">
+                                    <select name="kategori_id" required class="form-control">
                                         <option value="">Pilih Kategori Buku</option>
                                         <?php
                                         foreach($kategoribuku as $a){
