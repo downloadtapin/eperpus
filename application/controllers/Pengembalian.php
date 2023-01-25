@@ -6,13 +6,15 @@ class Pengembalian extends CI_Controller {
     function __construct() 
     {
         parent::__construct();
-        $this->load->model('PengembalianModel');
+        $this->load->model(array('AnggotaModel','BukuModel','PengembalianModel'));
+
     }
 	
 	public function index()
 	{
         $data['title'] = "Data Pengembalian Buku Perpustakaan | PERPUSTAKAAN";
         $data['pengembalian'] = $this->PengembalianModel->get_pengembalian();
+        
 		$this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('pengembalian/pengembalian_read', $data);
@@ -25,6 +27,8 @@ class Pengembalian extends CI_Controller {
             redirect('pengembalian');
         }else{
             $data['title'] = "Tambah Data Pengembalian Buku Perpustakaan | PERPUSTAKAAN";
+            $data['anggota'] = $this->AnggotaModel->get_anggota();
+            $data['buku'] = $this->BukuModel->get_buku();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('pengembalian/pengembalian_create');
@@ -39,6 +43,8 @@ class Pengembalian extends CI_Controller {
         }else{
             $data['title'] = "Perbaharui Data Pengembalian Buku Perpustakaan | PERPUSTAKAAN";
             $data['pengembalian'] = $this->PengembalianModel->get_pengembalian_byid($id);
+            $data['anggota'] = $this->AnggotaModel->get_anggota();
+            $data['buku'] = $this->BukuModel->get_buku();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('pengembalian/pengembalian_update', $data);

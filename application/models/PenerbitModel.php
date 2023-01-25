@@ -11,7 +11,7 @@ class PenerbitModel extends CI_Model {
     }
 
     public function get_penerbit_byid($id){
-        return $this->db->get_where($this->tabel, ['id_penerbit' => $id]) ->row();
+        return $this->db->get_where($this->tabel, ['kd_penerbit' => $id]) ->row();
     }
 
     public function insert_penerbit(){
@@ -27,12 +27,12 @@ class PenerbitModel extends CI_Model {
             'kd_penerbit' => $this->input->post('kd_penerbit'),
             'penerbit' => $this->input->post('penerbit')
         ];
-        $this->db->where('id_penerbit', $this->input->post('id_penerbit'));
+        $this->db->where('kd_penerbit', $this->input->post('kd_penerbit'));
         $this->db->update($this->tabel, $data);
     }
 
     public function delete_penerbit($id){
-        $this->db->where('id_penerbit', $id);
+        $this->db->where('kd_penerbit', $id);
         $this->db->delete($this->tabel);
     }
     

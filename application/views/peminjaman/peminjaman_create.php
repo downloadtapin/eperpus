@@ -51,7 +51,7 @@
                                         <option value="">Pilih Nama Anggota</option>
                                         <?php
                                         foreach($anggota as $a){
-                                            echo "<option value='$a->id_anggota'>$a->nama_lengkap</option>";
+                                            echo "<option value='$a->id_anggota'>$a->nama_anggota</option>";
                                         }
                                         ?>
                                     </select>

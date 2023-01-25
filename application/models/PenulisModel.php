@@ -16,7 +16,7 @@ class PenulisModel extends CI_Model {
 
     public function insert_penulis(){
         $data = [
-            'kd_penulis' => $this->input->post('kd_kelas'),
+            'kd_penulis' => $this->input->post('kd_penulis'),
             'penulis' => $this->input->post('penulis')
         ];
         $this->db->insert($this->tabel, $data);
@@ -24,7 +24,7 @@ class PenulisModel extends CI_Model {
 
     public function update_penulis(){
         $data = [
-            'kd_penulis' => $this->input->post('kd_kelas'),
+            'kd_penulis' => $this->input->post('kd_penulis'),
             'penulis' => $this->input->post('penulis')
         ];
         $this->db->where('id_penulis', $this->input->post('id_penulis'));
@@ -32,7 +32,7 @@ class PenulisModel extends CI_Model {
     }
 
     public function delete_penulis($id){
-        $this->db->where('id_penulis', $id);
+        $this->db->where('kd_penulis', $id);
         $this->db->delete($this->tabel);
     }
     

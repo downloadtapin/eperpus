@@ -53,10 +53,10 @@
                                             <td>".$a->kd_penulis."</td>
                                             <td>".$a->penulis."</td>                     
                                             <td>
-                                                <a href=".base_url('penulis/ubah/'.$a->id_penulis)." class='btn btn-info btn-sm'>
+                                                <a href=".base_url('penulis/ubah/'.$a->kd_penulis)." class='btn btn-info btn-sm'>
                                                     <i class='fa fa-edit'></i> Ubah
                                                 </a>
-                                                <a href=".base_url('penulis/hapus/'.$a->id_penulis)." class='btn btn-danger btn-sm'
+                                                <a href=".base_url('penulis/hapus/'.$a->kd_penulis)." class='btn btn-danger btn-sm'
                                                     onclick='return confirm(\"ingin hapus data ini?\")'>
                                                     <i class='fa fa-trash'></i> hapus
                                                 </a>

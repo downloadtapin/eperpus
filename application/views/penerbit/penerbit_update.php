@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
-                            <input type="hidden" name="id_penerbit" value="<?= $penerbit->id_penerbit?>">
+                            <input type="hidden" name="id_penerbit" value="<?= $penerbit->kd_penerbit?>">
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Kode Penerbit</label>
                                 <div class="col-md-10">

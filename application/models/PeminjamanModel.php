@@ -23,8 +23,8 @@ class PeminjamanModel extends CI_Model {
         $data = [
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'nisn' => $this->input->post('nisn'),
-            'isbn' => $this->input->post('isbn'),
+            'anggota_id' => $this->input->post('anggota_id'),
+            'buku_id' => $this->input->post('buku_id'),
             'total_buku' => $this->input->post('total_buku')
         ];
         $this->db->insert($this->tabel, $data);
