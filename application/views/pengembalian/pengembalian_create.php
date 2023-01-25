@@ -37,7 +37,7 @@
                                         <option value="">Pilih Judul Buku</option>
                                         <?php
                                         foreach($buku as $a){
-                                            echo "<option value='$a->id_buku'>$a->nama_buku</option>";
+                                            echo "<option value='$a->id_buku'>$a->judul_buku</option>";
                                         }
                                         ?>
                                     </select>

@@ -7,10 +7,14 @@ class PengembalianModel extends CI_Model {
 
     public function get_pengembalian()
     {
-        return $this->db->get($this->tabel)->result();
+        $q = "select pengembalian.*, anggota.nama_anggota, buku.judul_buku from pengembalian inner join anggota on pengembalian.anggota_id = anggota.id_anggota inner join buku
+        on pengembalian.buku_id = buku.id_buku";
+        return $this->db->query($q)->result();
+        //return $this->db->get($this->tabel)->result();
     }
 
     public function get_pengembalian_byid($id){
+        
         return $this->db->get_where($this->tabel, ['id_kembali' => $id]) ->row();
     }
 

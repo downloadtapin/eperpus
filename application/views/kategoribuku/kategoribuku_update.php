@@ -30,18 +30,18 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
-                            <input type="hidden" name="id_kb" value="<?= $kategori_buku->id_kb?>">
+                            <input type="hidden" name="id_kb" value="<?= $kategoribuku->id_kb?>">
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Kode Kategori Buku</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="kode_kategori" value="<?= $kategori_buku->kode_kategori ?>" required placeholder="Kode Kategori Buku" class="form-control">
+                                    <input type="text" name="kd_kategori" value="<?= $kategoribuku->kd_kategori ?>" required placeholder="Kode Kategori Buku" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Nama Kategori Buku</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="nama_kategori" value="<?= $kategori_buku->nama_kategori ?>" required placeholder="Nama Kategori Buku" class="form-control">
+                                    <input type="text" name="nama_kategori" value="<?= $kategoribuku->nama_kategori ?>" required placeholder="Nama Kategori Buku" class="form-control">
                                 </div>
                             </div>
                             <br>

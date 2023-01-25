@@ -50,13 +50,13 @@
                                     foreach($penerbit as $a){
                                         echo "<tr>
                                             <td>".$no++."</td>
-                                            <td>".$a->kd_penerbiit."</td>
+                                            <td>".$a->kd_penerbit."</td>
                                             <td>".$a->penerbit."</td>                     
                                             <td>
-                                                <a href=".base_url('penerbit/ubah/'.$a->id_penerbit)." class='btn btn-info btn-sm'>
+                                                <a href=".base_url('penerbit/ubah/'.$a->kd_penerbit)." class='btn btn-info btn-sm'>
                                                     <i class='fa fa-edit'></i> Ubah
                                                 </a>
-                                                <a href=".base_url('penerbit/hapus/'.$a->id_penerbit)." class='btn btn-danger btn-sm'
+                                                <a href=".base_url('penerbit/hapus/'.$a->kd_penerbit)." class='btn btn-danger btn-sm'
                                                     onclick='return confirm(\"ingin hapus data ini?\")'>
                                                     <i class='fa fa-trash'></i> hapus
                                                 </a>

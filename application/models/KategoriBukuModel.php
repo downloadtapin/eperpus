@@ -25,7 +25,7 @@ class KategoriBukuModel extends CI_Model {
     public function update_kategoribuku(){
         $data = [
             'kd_kategori' => $this->input->post('kd_kategori'),
-            'nama-kategori' => $this->input->post('nama_kategori')
+            'nama_kategori' => $this->input->post('nama_kategori')
         ];
         $this->db->where('id_kb', $this->input->post('id_kb'));
         $this->db->update($this->tabel, $data);
