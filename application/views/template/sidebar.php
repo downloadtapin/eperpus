@@ -21,7 +21,7 @@
                                 <div id="submenu-2" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?php echo base_url('admin')?>">Admin Perpustakaan</span></a>
+                                            <a class="nav-link" href="<?php echo base_url('petugas')?>">Admin Perpustakaan</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?php echo base_url('anggota')?>">Anggota Perpustakaan</span></a>

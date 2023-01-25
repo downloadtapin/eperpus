@@ -5,7 +5,7 @@ class PetugasModel extends CI_Model {
 
     private $tabel = "petugas";
 
-    public function get_admin()
+    public function get_petugas()
     {
         return $this->db->get($this->tabel)->result();
     }
@@ -17,8 +17,10 @@ class PetugasModel extends CI_Model {
     public function insert_admin(){
         $data = [
             'nama_lengkap' => $this->input->post('nama_lengkap'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            //'tempat_lahir' => $this->input->post('tempat_lahir'),
+            //'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'alamat' => $this->input->post('alamat'),
             'no_telp' => $this->input->post('no_telp')
@@ -29,8 +31,10 @@ class PetugasModel extends CI_Model {
     public function update_admin(){
         $data = [
             'nama_lengkap' => $this->input->post('nama_lengkap'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            //'tempat_lahir' => $this->input->post('tempat_lahir'),
+            //'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'alamat' => $this->input->post('alamat'),
             'no_telp' => $this->input->post('no_telp')

@@ -25,7 +25,7 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Petugas</h5>
                                     <div class="metric-value d-inline-block">
-                                        <a href="<?php echo base_url('admin'); ?>">
+                                        <a href="<?php echo base_url('Petugas'); ?>">
                                         <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

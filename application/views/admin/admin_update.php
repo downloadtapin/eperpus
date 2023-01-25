@@ -30,32 +30,27 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
-                            <input type="hidden" name="id_admin" value="<?= $admin->id_admin ?>">
-                            <div class="from-group row">
-                                <label for="" class="col-md-2">Kode Admin</label>
-                                <div class="col-md-10">
-                                    <input type="text" name="kd_admin" value="<?= $admin->kd_admin ?>" required placeholder="Nama Lengkap" class="form-control">
-                                </div>
-                            </div>
+                            <input type="hidden" name="id_admin" value="<?= $petugas->id_admin ?>">
+                           
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Nama Lengkap</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="nama_lengkap" value="<?= $admin->nama_lengkap ?>" required placeholder="Nama Lengkap" class="form-control">
+                                    <input type="text" name="nama_lengkap" value="<?= $petugas->nama_lengkap ?>" required placeholder="Nama Lengkap" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Username</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="username" value="<?= $admin->username ?>" required placeholder="Username" class="form-control">
+                                    <input type="text" name="username" value="<?= $petugas->username ?>" required placeholder="Username" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Password</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="password" value="<?= $admin->password ?>" required placeholder="Password" class="form-control">
+                                    <input type="text" name="password" value="<?= $petugas->password ?>" required placeholder="Password" class="form-control">
                                 </div>
                             </div>
                             <br>
@@ -73,14 +68,14 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-2">Alamat</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="alamat" value="<?= $admin->alamat ?>" required placeholder="Alamat" class="form-control">
+                                    <input type="text" name="alamat" value="<?= $petugas->alamat ?>" required placeholder="Alamat" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-2">No Telepon</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="no_telp" value="<?= $admin->no_telp ?>" required placeholder="Password" class="form-control">
+                                    <input type="text" name="no_telp" value="<?= $petugas->no_telp ?>" required placeholder="Password" class="form-control">
                                 </div>
                             </div>
                             <br>
