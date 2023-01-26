@@ -37,43 +37,23 @@
         </div>
         <table border="1" style="width: 100%;">
             <tr>
-                <td>
-                    No
-                </td>
-                <td>
-                    Kode Anggota
-                </td>
-                <td>
-                    NISN
-                </td>
-                <td>
-                    Nama Lengkap
-                </td>
-                <td>
-                    Jenis Kelamin
-                </td>
-                <td>
-                    Alamat
-                </td>
-                <td>
-                    Nama Kelas
-                </td>
-                <td>
-                    No Telepon
-                </td>
+                <th>No</th>
+                <th>Judul Buku</th>
+                <th>Nama Anggota</th>
+                <th>Tanggal Kembali</th>
+                <th>Total Buku</th>
+                <th>Denda</th>
             </tr>
             <?php
             $no = 1;
-            foreach ($anggota as $a) {
+            foreach ($pengembalian as $a) {
                 echo "<tr>
                     <td>" . $no++ . "</td>
-                    <td>" . $a->kd_anggota . "</td>
-                    <td>" . $a->nisn . "</td>
+                    <td>" . $a->judul_buku . "</td>
                     <td>" . $a->nama_anggota . "</td>
-                    <td>" . $a->jenis_kelamin . "</td>
-                    <td>" . $a->alamat . "</td>
-                    <td>" . $a->nama_kelas . "</td>     
-                    <td>" . $a->no_telp . "</td>                       
+                    <td>" . $a->tanggal_kembali . "</td>  
+                    <td>" . $a->total_buku . "</td>
+                    <td>" . $a->denda . "</td>                  
                     </tr>";
             }
             ?>

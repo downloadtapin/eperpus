@@ -33,28 +33,58 @@
 
         <hr class="solid">
         <div style="text-align: center;">
-            <h4>LAPORAN PEMINJAMAN BUKU PERPUSTAKAAN</h4>
+            <h4>LAPORAN BUKU PERPUSTAKAAN</h4>
         </div>
         <table border="1" style="width: 100%;">
             <tr>
-                <th>No</th>
-                <th>Tanggal Pinjam</th>
-                <th>Tanggal Kembali</th>
-                <th>NISN</th>
-                <th>ISBN</th>
-                <th>Total Buku</th>
-
+                <td>
+                    No
+                </td>
+                <td>
+                    Kode Buku
+                </td>
+                <td>
+                    Kategori Buku
+                </td>
+                <td>
+                    ISBN
+                </td>
+                <td>
+                    Judul Buku
+                </td>
+                <td>
+                    Pengarang
+                </td>
+                <td>
+                    Penerbit
+                </td>
+                <td>
+                    Tahun Terbit
+                </td>
+                <td>
+                    Stok
+                </td>
+                <td>
+                    Harga
+                </td>
+                <td>
+                    Rak
+                </td>
             </tr>
             <?php
             $no = 1;
-            foreach ($peminjaman as $a) {
+            foreach ($buku as $a) {
                 echo "<tr>
-                    <td>" . $no++ . "</td>
-                    <td>" . $a->tanggal_pinjam . "</td>
-                    <td>" . $a->tanggal_kembali . "</td>
-                    <td>" . $a->nisn . "</td>
-                    <td>" . $a->isbn . "</td>     
-                    <td>" . $a->total_buku . "</td>                       
+                <td>" . $no++ . "</td>
+                <td>" . $a->kd_buku . "</td>
+                <td>" . $a->nama_kategori . "</td>
+                <td>" . $a->isbn . "</td>
+                <td>" . $a->judul_buku . "</td>
+                <td>" . $a->pengarang . "</td>
+                <td>" . $a->penerbit . "</td>
+                <td>" . $a->tahun_terbit . "</td>
+                <td>" . $a->stok_buku . "</td> 
+                <td>" . $a->harga_buku . "</td>                        
                     </tr>";
             }
             ?>

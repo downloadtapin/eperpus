@@ -33,28 +33,25 @@
 
         <hr class="solid">
         <div style="text-align: center;">
-            <h4>LAPORAN PEMINJAMAN BUKU PERPUSTAKAAN</h4>
+            <h4>LAPORAN BUKU TAMU PERPUSTAKAAN</h4>
         </div>
         <table border="1" style="width: 100%;">
             <tr>
                 <th>No</th>
-                <th>Tanggal Pinjam</th>
-                <th>Tanggal Kembali</th>
-                <th>NISN</th>
-                <th>ISBN</th>
-                <th>Total Buku</th>
-
+                <th>Tanggal Kunjungan</th>
+                <th>Nama Lengkap</th>
+                <th>Kelas</th>
+                <th>Keperluan</th>
             </tr>
             <?php
             $no = 1;
-            foreach ($peminjaman as $a) {
+            foreach ($btamu as $a) {
                 echo "<tr>
                     <td>" . $no++ . "</td>
-                    <td>" . $a->tanggal_pinjam . "</td>
-                    <td>" . $a->tanggal_kembali . "</td>
-                    <td>" . $a->nisn . "</td>
-                    <td>" . $a->isbn . "</td>     
-                    <td>" . $a->total_buku . "</td>                       
+                    <td>" . $a->tanggal_kunjungan . "</td>
+                    <td>" . $a->nama_lengkap . "</td>
+                    <td>" . $a->nama_kelas . "</td>     
+                    <td>" . $a->keperluan . "</td>                       
                     </tr>";
             }
             ?>

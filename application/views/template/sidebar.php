@@ -36,6 +36,9 @@
                                             <a class="nav-link" href="<?php echo base_url('kategoribuku')?>">Kategori Buku</span></a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo base_url('kategoribuku')?>">Rak Buku</span></a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="<?php echo base_url('penulis')?>">Pengarang</span></a>
                                         </li>
                                         <li class="nav-item">
@@ -68,13 +71,13 @@
                                             <a class="nav-link" href="<?php echo base_url('laporan/LaporanPeminjamBuku')?>">Laporan Peminjaman Buku</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Laporan Pengembalian Buku</a>
+                                            <a class="nav-link" href="<?php echo base_url('laporan/LaporanPengembalianBuku')?>">Laporan Pengembalian Buku</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Laporan Tamu Kunjungan Perpustakaan</a>
+                                            <a class="nav-link" href="<?php echo base_url('laporan/LaporanBTamu')?>">Laporan Tamu Kunjungan Perpustakaan</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Laporan Data Buku Perpustakaan</a>
+                                            <a class="nav-link" href="<?php echo base_url('laporan/LaporanBuku')?>">Laporan Data Buku Perpustakaan</a>
                                         </li>
 
                                     </ul>
