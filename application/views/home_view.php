@@ -19,13 +19,16 @@
                 <!-- ============================================================== -->
                 <!-- pagehader  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-muted">Petugas</h5>
+                <div class="container py-3">
+        <div class="row col-lg-10 mx-auto">
+            
+            <div class="col-md-4 py-3">
+                <div class="card round h-100">
+                    
+                        <div class="card-body">
+                                <h5 class="text-muted">Data Buku</h5>
                                     <div class="metric-value d-inline-block">
-                                        <a href="<?php echo base_url('Petugas'); ?>">
+                                        <a href="<?php echo base_url('Buku'); ?>">
                                         <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -34,24 +37,72 @@
                                  </a>
                             </div>
                         </div>
-                    </div>
+
                 </div>
-                    <!-- /. metric -->
-                    <!-- metric -->
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-muted">Anggota Perpustakaan</h5>
-                                <div class="metric-value d-inline-block">
-                                        <a href="<?php echo base_url('anggota'); ?>">
+            </div>
+            
+            
+            <div class="col-md-4 py-3">
+                <div class="card round h-100">
+                   
+                        <div class="card-body">
+                                <h5 class="text-muted">Data Anggota</h5>
+                                    <div class="metric-value d-inline-block">
+                                        <a href="<?php echo base_url('Anggota'); ?>">
                                         <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                         <div class="clearfix"></div>
-                                </div>                                
-                            </div>                           
+                                    </div>
+                                 </a>
+                            </div>
                         </div>
-                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 py-3">
+                <div class="card round h-100">
+                    
+                        <div class="card-body">
+                                <h5 class="text-muted">Peminjaman</h5>
+                                    <div class="metric-value d-inline-block">
+                                        <a href="<?php echo base_url('Peminjaman'); ?>">
+                                        <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                 </a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 py-3">
+                <div class="card round h-100">
+                    
+                        <div class="card-body">
+                                <h5 class="text-muted">Kembali</h5>
+                                    <div class="metric-value d-inline-block">
+                                        <a href="<?php echo base_url('Pengembalian'); ?>">
+                                        <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                 </a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            
+            
+            
+            
+
+        </div>
+   
                     <!-- /. metric -->
                     <!-- metric -->
                     <li class="<?php if($this->uri->uri_string() == 'user/edit/'.$this->uri->segment('3')){ echo 'active';}?>">

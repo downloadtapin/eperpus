@@ -9,7 +9,7 @@ class Auth extends CI_Controller{
 	}
  
 	function index(){
-		$this->load->view('views/home_view');
+		$this->load->view('auth/login');
 	}
  
 	function login_aksi(){
@@ -29,10 +29,10 @@ class Auth extends CI_Controller{
  
 			$this->session->set_userdata($data_session);
  
-			redirect(base_url("admin"));
+			redirect(base_url("Home"));
  
 		}else{
-            redirect(base_url('views/home_view'));
+            redirect(base_url('Home'));
 			//echo "Username dan password salah !";
 		}
 	}

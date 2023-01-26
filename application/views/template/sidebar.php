@@ -21,7 +21,7 @@
                                 <div id="submenu-2" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?php echo base_url('petugas')?>">Admin Perpustakaan</span></a>
+                                            <a class="nav-link" href="<?php echo base_url('petugas')?>">Petugas Perpustakaan</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?php echo base_url('anggota')?>">Anggota Perpustakaan</span></a>
@@ -62,10 +62,10 @@
                                 <div id="submenu-4" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Laporan Anggota Perpustakaan</a>
+                                            <a class="nav-link" href="<?php echo base_url('laporan')?>">Laporan Anggota Perpustakaan</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Laporan Peminjaman Buku</a>
+                                            <a class="nav-link" href="<?php echo base_url('laporan/LaporanPeminjamBuku')?>">Laporan Peminjaman Buku</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Laporan Pengembalian Buku</a>
