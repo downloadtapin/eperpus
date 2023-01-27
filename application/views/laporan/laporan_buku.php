@@ -67,9 +67,7 @@
                 <td>
                     Harga
                 </td>
-                <td>
-                    Rak
-                </td>
+                
             </tr>
             <?php
             $no = 1;

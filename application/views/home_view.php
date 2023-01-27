@@ -105,8 +105,8 @@
    
                     <!-- /. metric -->
                     <!-- metric -->
-                    <li class="<?php if($this->uri->uri_string() == 'user/edit/'.$this->uri->segment('3')){ echo 'active';}?>">
+                    <!-- <li class="<?php if($this->uri->uri_string() == 'user/edit/'.$this->uri->segment('3')){ echo 'active';}?>">
 					<a href="<?php echo base_url('user/edit/'.$this->session->userdata('ses_id'));?>" class="cursor">
 						<i class="fa fa-user"></i>  <span>Data Anggota</span>
 					</a>
-				</li>
+				</li> -->
