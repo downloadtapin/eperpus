@@ -27,6 +27,7 @@ class Anggota extends CI_Controller {
         }else{
             $data['title'] = "Tambah Data Anggota Perpustakaan | PERPUSTAKAAN";
             $data['kelas'] = $this->KelasModel->get_kelas();
+            $data['kode'] = $this->AnggotaModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('anggota/anggota_create', $data);
@@ -42,6 +43,7 @@ class Anggota extends CI_Controller {
             $data['title'] = "Perbaharui Data Anggota Perpustakaan | PERPUSTAKAAN";
             $data['anggota'] = $this->AnggotaModel->get_anggota_byid($id);
             $data['kelas'] = $this->KelasModel->get_kelas();
+            
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('anggota/anggota_update', $data);

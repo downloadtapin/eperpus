@@ -25,6 +25,7 @@ class Kategoribuku extends CI_Controller {
             redirect('kategoribuku');
         }else{
             $data['title'] = "Tambah Data Kategori Buku | PERPUSTAKAAN";
+            $data['kode'] = $this->KategoriBukuModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('kategoribuku/kategoribuku_create');

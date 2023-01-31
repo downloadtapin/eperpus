@@ -9,7 +9,22 @@ class KelasModel extends CI_Model {
     {
         return $this->db->get($this->tabel)->result();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(kelas.kd_kelas,5) as kd_kelas', FALSE);
+        $this->db->order_by('kd_kelas','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('kelas');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_kelas) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KLS".$batas;
+        return $kodetampil;  
+    }
     public function get_kelas_byid($id){
         return $this->db->get_where($this->tabel, ['id_kelas' => $id]) ->row();
     }

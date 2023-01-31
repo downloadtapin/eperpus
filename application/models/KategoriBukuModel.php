@@ -13,7 +13,22 @@ class KategoriBukuModel extends CI_Model {
     public function get_kategoribuku_byid($id){
         return $this->db->get_where($this->tabel, ['id_kb' => $id]) ->row();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(kategoribuku.kd_kategori,5) as kd_kategori', FALSE);
+        $this->db->order_by('kd_kategori','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('kategoribuku');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_kategori) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KB".$batas;
+        return $kodetampil;  
+    }
     public function insert_kategoribuku(){
         $data = [
             'kd_kategori' => $this->input->post('kd_kategori'),

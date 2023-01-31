@@ -25,6 +25,7 @@ class Kelas extends CI_Controller {
             redirect('kelas');
         }else{
             $data['title'] = "Tambah Data Kelas| PERPUSTAKAAN";
+            $data['kode'] = $this->KelasModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('kelas/kelas_create');

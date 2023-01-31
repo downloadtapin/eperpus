@@ -36,7 +36,6 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode Admin</th>
                                     <th>Nama Lengkap</th>
                                     <th>Username</th>
                                     <th>Password</th>
@@ -50,13 +49,17 @@
                                 <?php
                                     $no = 1;
                                     foreach($petugas as $a){
+                                        if ($a->jenis_kelamin==="P"){
+                                            $jkel = "<td>Perempuan</td>";
+                                        } else {
+                                            $jkel = "<td>Laki-Laki</td>";
+                                        }
                                         echo "<tr>
                                             <td>".$no++."</td>
-                                            <td>".$a->id_admin."</td>
                                             <td>".$a->nama_lengkap."</td>
                                             <td>".$a->username."</td>
                                             <td>".$a->password."</td>  
-                                            <td>".$a->jenis_kelamin."</td>
+                                            ".$jkel."
                                             <td>".$a->alamat."</td>
                                             <td>".$a->no_telp."</td>                      
                                             <td>

@@ -27,6 +27,7 @@ class Buku extends CI_Controller {
         }else{
             $data['title'] = "Tambah Data Buku Perpustakaan | PERPUSTAKAAN";
             $data['kategoribuku'] = $this->KategoriBukuModel->get_kategoribuku();
+            $data['kode'] = $this->BukuModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('buku/buku_create', $data);

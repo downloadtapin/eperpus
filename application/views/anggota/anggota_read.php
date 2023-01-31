@@ -53,12 +53,17 @@
                                 <?php
                                     $no = 1;
                                     foreach($anggota as $a){
+                                        if ($a->jenis_kelamin==="P"){
+                                            $jkel = "<td>Perempuan</td>";
+                                        } else {
+                                            $jkel = "<td>Laki-Laki</td>";
+                                        }
                                         echo "<tr>
                                             <td>".$no++."</td>
                                             <td>".$a->kd_anggota."</td>
                                             <td>".$a->nisn."</td>
                                             <td>".$a->nama_anggota."</td>
-                                            <td>".$a->jenis_kelamin."</td>
+                                            ".$jkel."
                                             <td>".$a->nama_kelas."</td>     
                                             <td>".$a->alamat."</td>
                                             <td>".$a->no_telp."</td>                       

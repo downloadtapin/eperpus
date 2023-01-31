@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <br>
-                            <a href="<?= base_url('kategori_buku')?>" class="btn btn-sm btn-danger float-right"> Batal</a>
+                            <a href="<?= base_url('kategoribuku')?>" class="btn btn-sm btn-danger float-right"> Batal</a>
                             <button type="submit" name="update" class="btn btn-sm btn-info float-right mr-1"> Simpan</button>
                         </form>
                     </div>

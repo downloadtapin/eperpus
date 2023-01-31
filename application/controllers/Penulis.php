@@ -25,6 +25,7 @@ class Penulis extends CI_Controller {
             redirect('penulis');
         }else{
             $data['title'] = "Tambah Data Penulis| PERPUSTAKAAN";
+            $data['kode'] = $this->PenulisModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('penulis/penulis_create');

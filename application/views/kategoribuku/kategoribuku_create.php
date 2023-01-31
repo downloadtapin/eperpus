@@ -33,7 +33,7 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Kode Kategori Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="kd_kategori" required placeholder="Kode Kategori Buku" class="form-control">
+                                    <input value="<?php echo $kode ?>" type="text" name="kd_kategori" required placeholder="Kode Kategori Buku" class="form-control">
                                 </div>
                             </div>
                             <br>

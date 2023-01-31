@@ -25,6 +25,7 @@ class Penerbit extends CI_Controller {
             redirect('penerbit');
         }else{
             $data['title'] = "Tambah Data Penerbit| PERPUSTAKAAN";
+            $data['kode'] = $this->PenerbitModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('penerbit/penerbit_create');

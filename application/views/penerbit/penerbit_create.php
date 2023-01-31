@@ -33,7 +33,7 @@
                         <div class="from-group row">
                                 <label for="" class="col-md-3">Kode Penerbit</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="kd_penerbit" required placeholder="Kode Penerbit" class="form-control">
+                                    <input value="<?php echo $kode ?>" type="text" name="kd_penerbit" required placeholder="Kode Penerbit" class="form-control">
                                 </div>
                             </div>
                             <br>

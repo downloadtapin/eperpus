@@ -55,10 +55,16 @@
                             <div class="form-group row">
                             <label for="" class="col-md-2">Jenis Kelamin</label>
                             <div class="col-md-10">
+                                
                                 <select name="jenis_kelamin" class="form-control">
-                                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                                    <option value="L">Laki-Laki</option>
-                                    <option value="P">Perempuan</option>
+                                    <?php 
+                                    if ($anggota->jenis_kelamin==="P"){
+                                        $jkel = "<option value='P'>Perempuan</option><option value='L'>Laki-Laki</option>";
+                                    } else {
+                                        $jkel = "<option value='L'>Laki-Laki</option><option value='P'>Perempuan</option>";
+                                    }
+                                    ?>
+                                    <?php echo $jkel ?>
                                 </select>
                             </div>
                             </div>

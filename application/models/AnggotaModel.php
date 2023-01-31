@@ -11,7 +11,22 @@ class AnggotaModel extends CI_Model {
         return $this->db->query($q)->result();
         //return $this->db->get($this->tabel)->result();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(anggota.kd_anggota,5) as kd_anggota', FALSE);
+        $this->db->order_by('kd_anggota','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('anggota');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_anggota) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KA".$batas;
+        return $kodetampil;  
+    }
     public function get_anggota_byid($id){
         return $this->db->get_where($this->tabel, ['id_anggota' => $id]) ->row();
     }

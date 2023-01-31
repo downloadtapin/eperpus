@@ -15,7 +15,22 @@ class BukuModel extends CI_Model {
     public function get_buku_byid($id){
         return $this->db->get_where($this->tabel, ['id_buku' => $id]) ->row();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(buku.kd_buku,5) as kd_buku', FALSE);
+        $this->db->order_by('kd_buku','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('buku');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_buku) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KDB".$batas;
+        return $kodetampil;  
+    }
     public function insert_buku(){
         $data = [
             'kd_buku' => $this->input->post('kd_buku'),
