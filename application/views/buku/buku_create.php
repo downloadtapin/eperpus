@@ -10,8 +10,10 @@
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?= base_url('home')?>" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url('buku')?>" class="breadcrumb-link">Buku</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('home') ?>"
+                                        class="breadcrumb-link">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('buku') ?>"
+                                        class="breadcrumb-link">Buku</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                             </ol>
                         </nav>
@@ -30,10 +32,11 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
-                        <div class="from-group row">
+                            <div class="from-group row">
                                 <label for="" class="col-md-3">Kode Buku</label>
                                 <div class="col-md-9">
-                                    <input value="<?php echo $kode ?>" type="text" name="kd_buku" required placeholder="Kode Buku" class="form-control">
+                                    <input value="<?php echo $kode ?>" type="text" name="kd_buku" required
+                                        placeholder="Kode Buku" class="form-control">
                                 </div>
                             </div>
                             <br>
@@ -43,7 +46,7 @@
                                     <select name="kategori_id" required class="form-control">
                                         <option value="">Pilih Kategori Buku</option>
                                         <?php
-                                        foreach($kategoribuku as $a){
+                                        foreach ($kategoribuku as $a) {
                                             echo "<option value='$a->id_kb'>$a->nama_kategori</option>";
                                         }
                                         ?>
@@ -61,51 +64,85 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Judul Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="judul_buku" required placeholder="Judul Buku" class="form-control">
+                                    <input type="text" name="judul_buku" required placeholder="Judul Buku"
+                                        class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-3">Pengarang Buku</label>
+                                <label for="" class="col-md-3">Penulis Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="pengarang" required placeholder="Pengarang Buku" class="form-control">
+                                    <select name="id_penulis" required class="form-control">
+                                        <option value="">Pilih Penulis Buku</option>
+                                        <?php
+                                        foreach ($penulisbuku as $a) {
+                                            echo "<option value='$a->id_penulis'>$a->penulis</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
+
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Penerbit Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="penerbit" required placeholder="Penerbit Buku" class="form-control">
+                                    <select name="id_penerbit" required class="form-control">
+                                        <option value="">Pilih Penerbit Buku</option>
+                                        <?php
+                                        foreach ($penerbit as $a) {
+                                            echo "<option value='$a->id_penerbit'>$a->penerbit</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Tahun Terbit Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="tahun_terbit" required placeholder="Tahun Terbit" class="form-control">
+                                    <input type="text" name="tahun_terbit" required placeholder="Tahun Terbit"
+                                        class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Stok Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="stok_buku" required placeholder="Stok Buku" class="form-control">
+                                    <input type="text" name="stok_buku" required placeholder="Stok Buku"
+                                        class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Harga Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="harga_buku" required placeholder="Harga Buku" class="form-control">
+                                    <input type="text" name="harga_buku" required placeholder="Harga Buku"
+                                        class="form-control">
                                 </div>
                             </div>
                             <br>
-                            <a href="<?= base_url('buku')?>" class="btn btn-sm btn-danger float-right"> Batal</a>
-                            <button type="submit" name="create" class="btn btn-sm btn-info float-right mr-1"> Simpan</button>
+                            <div class="from-group row">
+                                <label for="" class="col-md-3">Rak Buku</label>
+                                <div class="col-md-9">
+                                    <select name="id_rak" required class="form-control">
+                                        <option value="">Pilih Rak Buku</option>
+                                        <?php
+                                        foreach ($rak as $a) {
+                                            echo "<option value='$a->id_rak'>$a->nama_rak</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <a href="<?= base_url('buku') ?>" class="btn btn-sm btn-danger float-right"> Batal</a>
+                            <button type="submit" name="create" class="btn btn-sm btn-info float-right mr-1">
+                                Simpan</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>            
+    </div>
 </div>

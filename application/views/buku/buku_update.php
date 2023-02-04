@@ -68,16 +68,32 @@
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Pengarang</label>
+                                <label for="" class="col-md-2">Nama Penulis Buku</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="pengarang" value="<?= $buku->pengarang ?>" required placeholder="Pengarang" class="form-control">
+                                    <select name="id_penulis" required class="form-control">
+                                        <option value="">Pilih Penulis Buku</option>
+                                        <?php
+                                        foreach($penulisbuku as $a){
+                                            $selected = ($a->id_penulis == $buku->id_penulis) ? "selected" : "";
+                                            echo "<option value='$a->id_penulis' $selected>$a->penulis</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Penerbit</label>
+                                <label for="" class="col-md-2">Nama Penerbit Buku</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="penerbit" value="<?= $buku->penerbit ?>" required placeholder="Penerbit" class="form-control">
+                                    <select name="id_penerbit" required class="form-control">
+                                        <option value="">Pilih Penerbit Buku</option>
+                                        <?php
+                                        foreach($penerbit as $a){
+                                            $selected = ($a->id_penerbit == $buku->id_penerbit) ? "selected" : "";
+                                            echo "<option value='$a->id_penerbit' $selected>$a->penerbit</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <br>
@@ -99,6 +115,21 @@
                                 <label for="" class="col-md-2">Harga Buku</label>
                                 <div class="col-md-10">
                                     <input type="text" name="harga_buku" value="<?= $buku->harga_buku ?>" required placeholder="Harga Buku" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="from-group row">
+                                <label for="" class="col-md-2">Rak Buku</label>
+                                <div class="col-md-10">
+                                    <select name="id_rak" required class="form-control">
+                                        <option value="">Pilih Rak Buku</option>
+                                        <?php
+                                        foreach($rak as $a){
+                                            $selected = ($a->id_rak == $buku->id_rak) ? "selected" : "";
+                                            echo "<option value='$a->id_rak' $selected>$a->nama_rak</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <br>

@@ -6,13 +6,15 @@ class Buku extends CI_Controller {
     function __construct() 
     {
         parent::__construct();
-        $this->load->model(array('KategoriBukuModel','BukuModel'));
+        $this->load->model(array('rakModel','KategoriBukuModel','BukuModel','PenerbitModel','PenulisModel'));
     }
 	
 	public function index()
 	{
         $data['title'] = "Data Buku Perpustakaan | PERPUSTAKAAN";
         $data['buku'] = $this->BukuModel->get_buku();
+        $data['penerbit'] = $this->PenerbitModel->get_penerbit();
+        $data['penulisbuku'] = $this->PenulisModel->get_penulis();
         $data['kategoribuku'] = $this->KategoriBukuModel->get_kategoribuku();
 		$this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
@@ -28,6 +30,9 @@ class Buku extends CI_Controller {
             $data['title'] = "Tambah Data Buku Perpustakaan | PERPUSTAKAAN";
             $data['kategoribuku'] = $this->KategoriBukuModel->get_kategoribuku();
             $data['kode'] = $this->BukuModel->CreateCode();
+            $data['penerbit'] = $this->PenerbitModel->get_penerbit();
+            $data['rak'] = $this->rakModel->get_rak();
+            $data['penulisbuku'] = $this->PenulisModel->get_penulis();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('buku/buku_create', $data);
@@ -43,6 +48,9 @@ class Buku extends CI_Controller {
             $data['title'] = "Perbaharui Data Buku Perpustakaan | PERPUSTAKAAN";
             $data['buku'] = $this->BukuModel->get_buku_byid($id);
             $data['kategoribuku'] = $this->KategoriBukuModel->get_kategoribuku();
+            $data['penerbit'] = $this->PenerbitModel->get_penerbit();
+            $data['rak'] = $this->rakModel->get_rak();
+            $data['penulisbuku'] = $this->PenulisModel->get_penulis();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('buku/buku_update', $data);

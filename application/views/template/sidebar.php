@@ -35,11 +35,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?php echo base_url('kategoribuku')?>">Kategori Buku</span></a>
                                         </li>
-                                        <!-- <li class="nav-item">
-                                            <a class="nav-link" href="<?php echo base_url('kategoribuku')?>">Rak Buku</span></a>
-                                        </li> -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?php echo base_url('penulis')?>">Pengarang</span></a>
+                                            <a class="nav-link" href="<?php echo base_url('rak')?>">Rak Buku</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo base_url('penulis')?>">Penulis</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?php echo base_url('penerbit')?>">Penerbit</span></a>

@@ -7,7 +7,7 @@ class BukuModel extends CI_Model {
 
     public function get_buku()
     {
-        $q = "select buku.*, kategoribuku.nama_kategori from buku inner join kategoribuku on buku.kategori_id = kategoribuku.id_kb";
+        $q = "select buku.*, kategoribuku.nama_kategori, penulis.penulis, penerbit.penerbit, rak.nama_rak from buku inner join kategoribuku on buku.kategori_id = kategoribuku.id_kb inner join penerbit on penerbit.id_penerbit = buku.id_penerbit inner join penulis on penulis.id_penulis = buku.id_penulis  inner join rak on rak.id_rak = buku.id_rak";
         return $this->db->query($q)->result();
         //return $this->db->get($this->tabel)->result();
     }
@@ -37,11 +37,12 @@ class BukuModel extends CI_Model {
             'kategori_id' => $this->input->post('kategori_id'),
             'isbn' => $this->input->post('isbn'),
             'judul_buku' => $this->input->post('judul_buku'),
-            'pengarang' => $this->input->post('pengarang'),
-            'penerbit' => $this->input->post('penerbit'),
+            'id_penulis' => $this->input->post('id_penulis'),
+            'id_penerbit' => $this->input->post('id_penerbit'),
             'tahun_terbit' => $this->input->post('tahun_terbit'),
             'stok_buku' => $this->input->post('stok_buku'),
-            'harga_buku' => $this->input->post('harga_buku')
+            'harga_buku' => $this->input->post('harga_buku'),
+            'id_rak' => $this->input->post('id_rak')
         ];
         $this->db->insert($this->tabel, $data);
     }
@@ -52,11 +53,12 @@ class BukuModel extends CI_Model {
             'kategori_id' => $this->input->post('kategori_id'),
             'isbn' => $this->input->post('isbn'),
             'judul_buku' => $this->input->post('judul_buku'),
-            'pengarang' => $this->input->post('pengarang'),
-            'penerbit' => $this->input->post('penerbit'),
+            'id_penulis' => $this->input->post('id_penulis'),
+            'id_penerbit' => $this->input->post('id_penerbit'),
             'tahun_terbit' => $this->input->post('tahun_terbit'),
             'stok_buku' => $this->input->post('stok_buku'),
-            'harga_buku' => $this->input->post('harga_buku')
+            'harga_buku' => $this->input->post('harga_buku'),
+            'id_rak' => $this->input->post('id_rak')
         ];
         $this->db->where('id_buku', $this->input->post('id_buku'));
         $this->db->update($this->tabel, $data);
