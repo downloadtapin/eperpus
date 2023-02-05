@@ -40,10 +40,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal Pinjam</th>
-                                    <th>Tanggal Kembali</th>
+
                                     <th>NISN</th>
                                     <th>ISBN</th>
-                                    <th>Total Buku</th>
+                                    <th>Lama Pinjam</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -54,10 +54,10 @@
                                         echo "<tr>
                                             <td>".$no++."</td>
                                             <td>".$a->tanggal_pinjam."</td>
-                                            <td>".$a->tanggal_kembali."</td>
+                                            
                                             <td>".$a->nisn."</td>
                                             <td>".$a->isbn."</td>     
-                                            <td>".$a->total_buku."</td>                      
+                                            <td>".$a->lama_pinjam." Hari</td>                      
                                             <td>
                                                 <a href=".base_url('peminjaman/ubah/'.$a->id_pinjam)." class='btn btn-info btn-sm'>
                                                     <i class='fa fa-edit'></i> Ubah

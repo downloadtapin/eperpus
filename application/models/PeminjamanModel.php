@@ -8,8 +8,8 @@ class PeminjamanModel extends CI_Model {
 
     public function get_peminjaman()
     {
-        $q = "select peminjaman.*, anggota.nisn, buku.isbn from peminjaman inner join anggota on peminjaman.anggota_id = anggota.id_anggota inner join buku
-        on peminjaman.buku_id = buku.id_buku";
+        $q = "select peminjaman.*, anggota.nisn, buku.isbn from peminjaman inner join anggota on peminjaman.nisn = anggota.nisn inner join buku
+        on peminjaman.isbn = buku.isbn";
         return $this->db->query($q)->result();
         //return $this->db->get('tampil_pinjam')->result_array();
         //return $this->db->get($this->tabel)->result();
@@ -18,14 +18,31 @@ class PeminjamanModel extends CI_Model {
     public function get_peminjaman_byid($id){
         return $this->db->get_where($this->tabel, ['id_pinjam' => $id]) ->row();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(peminjaman.kd_pinjam,5) as kd_pinjam', FALSE);
+        $this->db->order_by('kd_pinjam','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('peminjaman');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_pinjam) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KDP".$batas;
+        return $kodetampil;  
+    }
     public function insert_peminjaman(){
         $data = [
+            'kd_pinjam' => $this->input->post('kd_pinjam'),
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
-            'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'anggota_id' => $this->input->post('anggota_id'),
-            'buku_id' => $this->input->post('buku_id'),
-            'total_buku' => $this->input->post('total_buku')
+            'nisn' => $this->input->post('nisn'),
+            'nama_anggota' => $this->input->post('nama_anggota'),
+            'judul_buku' => $this->input->post('judul_buku'),
+            'isbn' => $this->input->post('isbn'),
+            'lama_pinjam' => $this->input->post('lama_pinjam')
         ];
         $this->db->insert($this->tabel, $data);
     }
@@ -33,10 +50,11 @@ class PeminjamanModel extends CI_Model {
     public function update_peminjaman(){
         $data = [
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
-            'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'anggota_id' => $this->input->post('anggota_id'),
-            'buku_id' => $this->input->post('buku_id'),
-            'total_buku' => $this->input->post('total_buku')
+            'nama_anggota' => $this->input->post('nama_anggota'),
+            'judul_buku' => $this->input->post('judul_buku'),
+            'nisn' => $this->input->post('nisn'),
+            'isbn' => $this->input->post('isbn'),
+            'lama_pinjam' => $this->input->post('lama_pinjam')
         ];
         $this->db->where('id_pinjam', $this->input->post('id_pinjam'));
         $this->db->update($this->tabel, $data);

@@ -7,8 +7,8 @@ class PengembalianModel extends CI_Model {
 
     public function get_pengembalian()
     {
-        $q = "select pengembalian.*, anggota.nama_anggota, buku.judul_buku from pengembalian inner join anggota on pengembalian.anggota_id = anggota.id_anggota inner join buku
-        on pengembalian.buku_id = buku.id_buku";
+        $q = "select pengembalian.*, anggota.nama_anggota, buku.judul_buku from pengembalian inner join anggota on pengembalian.nisn = anggota.nisn inner join buku
+        on pengembalian.isbn = buku.isbn";
         return $this->db->query($q)->result();
         //return $this->db->get($this->tabel)->result();
     }
@@ -17,11 +17,29 @@ class PengembalianModel extends CI_Model {
         
         return $this->db->get_where($this->tabel, ['id_kembali' => $id]) ->row();
     }
-
+    public function CreateCode(){
+        $this->db->select('RIGHT(pengembalian.kd_kembali,5) as kd_kembali', FALSE);
+        $this->db->order_by('kd_kembali','DESC');    
+        $this->db->limit(1);    
+        $query = $this->db->get('pengembalian');
+            if($query->num_rows() <> 0){      
+                 $data = $query->row();
+                 $kode = intval($data->kd_kembali) + 1; 
+            }
+            else{      
+                 $kode = 1;  
+            }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+        $kodetampil = "KDK".$batas;
+        return $kodetampil;  
+    }
     public function insert_pengembalian(){
         $data = [
-            'buku_id' => $this->input->post('buku_id'),
-            'anggota_id' => $this->input->post('anggota_id'),
+            'kd_kembali' => $this->input->post('kd_kembali'),
+            'kd_pinjam' => $this->input->post('kd_pinjam'),
+            'isbn' => $this->input->post('isbn'),
+            'nisn' => $this->input->post('nisn'),
+            'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
             'total_buku' => $this->input->post('total_buku'),
             'denda' => $this->input->post('denda')

@@ -30,6 +30,8 @@ class Peminjaman extends CI_Controller {
             $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman();
             $data['anggota'] = $this->AnggotaModel->get_anggota();
             $data['buku'] = $this->BukuModel->get_buku();
+            $data['kode'] = $this->PeminjamanModel->CreateCode();
+            
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('peminjaman/peminjaman_create', $data);
@@ -43,7 +45,9 @@ class Peminjaman extends CI_Controller {
             redirect('peminjaman');
         }else{
             $data['title'] = "Perbaharui Data Peminjaman Perpustakaan | E-PERPUS";
+            $data['anggota'] = $this->AnggotaModel->get_anggota();
             $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman_byid($id);
+            $data['buku'] = $this->BukuModel->get_buku();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('peminjaman/peminjaman_update', $data);
