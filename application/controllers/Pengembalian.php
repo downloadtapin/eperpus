@@ -51,6 +51,7 @@ class Pengembalian extends CI_Controller
             $data['pengembalian'] = $this->PengembalianModel->get_pengembalian_byid($id);
             $data['anggota'] = $this->AnggotaModel->get_anggota();
             $data['buku'] = $this->BukuModel->get_buku();
+            $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('pengembalian/pengembalian_update', $data);

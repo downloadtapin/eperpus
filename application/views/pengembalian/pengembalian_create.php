@@ -10,10 +10,8 @@
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?= base_url('home') ?>"
-                                        class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url('pengembalian') ?>"
-                                        class="breadcrumb-link">Pengembalian Buku</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('home') ?>" class="breadcrumb-link">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('pengembalian') ?>" class="breadcrumb-link">Pengembalian Buku</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                             </ol>
                         </nav>
@@ -35,8 +33,7 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Kode Kembali</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="<?php echo $kode ?>" name="kd_kembali" required
-                                        placeholder="Kode Pinjam" class="form-control">
+                                    <input type="text" value="<?php echo $kode ?>" name="kd_kembali" required placeholder="Kode Pinjam" class="form-control">
                                 </div>
                             </div>
                             <br>
@@ -49,6 +46,7 @@
                                     document.getElementById("input2").value = data[2];
                                     document.getElementById("input22").value = data[4];
                                     document.getElementById("input3").value = data[3];
+                                    document.getElementById("lamapinjam").value = data[6];
 
                                 }
                             </script>
@@ -59,23 +57,20 @@
                                         <option value="">Pilih Kode Pinjam</option>
                                         <?php
                                         foreach ($peminjaman as $a) {
-                                            echo '<option value="' . $a->kd_pinjam . '|' . $a->judul_buku . '|' . $a->nama_anggota . '|' . $a->tanggal_pinjam . '|' . $a->nisn . '|' . $a->isbn . '">' . $a->kd_pinjam . '</option>';
+                                            echo '<option value="' . $a->kd_pinjam . '|' . $a->judul_buku . '|' . $a->nama_anggota . '|' . $a->tanggal_pinjam . '|' . $a->nisn . '|' . $a->isbn . '|' . $a->lama_pinjam . '">' . $a->kd_pinjam . '</option>';
                                             // echo "<option value='$a->kd_pinjam'>$a->kd_pinjam</option>";
                                         }
                                         ?>
                                     </select>
-                                    <input type="text" id="input0" name="kd_pinjam" required placeholder="Judul Buku"
-                                        class="form-control">
+                                    <input type="text" style="display: none" id="input0" name="kd_pinjam" required placeholder="Judul Buku" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Judul Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" id="input1" name="judul_buku" required placeholder="Judul Buku"
-                                        class="form-control">
-                                        <input type="text" id="input11" name="isbn" required placeholder="Judul Buku"
-                                        class="form-control">
+                                    <input type="text" id="input1" name="judul_buku" required placeholder="Judul Buku" class="form-control">
+                                    <input style="display: none" type="text" id="input11" name="isbn" required placeholder="Judul Buku" class="form-control">
                                 </div>
                             </div>
                             <br>
@@ -83,18 +78,15 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Nama Anggota</label>
                                 <div class="col-md-9">
-                                    <input type="text" id="input2" name="nama_anggota" required
-                                        placeholder="Nama Anggota" class="form-control">
-                                    <input type="text" id="input22" name="nisn" required
-                                        placeholder="Nama Anggota" class="form-control">
+                                    <input type="text" id="input2" name="nama_anggota" required placeholder="Nama Anggota" class="form-control">
+                                    <input style="display: none" type="text" id="input22" name="nisn" required placeholder="Nama Anggota" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Tanggal pinjam</label>
                                 <div class="col-md-9">
-                                    <input type="date" id="input3" name="tanggal_pinjam" required
-                                        placeholder="Tanggal Kembali" class="form-control">
+                                    <input type="date" id="input3" name="tanggal_pinjam" required placeholder="Tanggal Kembali" class="form-control">
 
                                 </div>
                             </div>
@@ -102,31 +94,79 @@
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Tanggal Kembali</label>
                                 <div class="col-md-9">
-                                    <input type="date" name="tanggal_kembali" required placeholder="Tanggal Kembali"
-                                        class="form-control">
+                                    <input type="date" id="tanggal_kembali" name="tanggal_kembali" required placeholder="Tanggal Kembali" class="form-control">
+                                    
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Total Pinjam Buku</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="total_buku" required placeholder="Total Pinjam Buku"
-                                        class="form-control">
+                                    <input type="text" id="total_buku" name="total_buku" required placeholder="Total Pinjam Buku" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
                                 <label for="" class="col-md-3">Denda</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="denda" required placeholder="Denda" class="form-control">
+                                    <input type="text" id="result2" name="denda" required placeholder="Denda" class="form-control">
                                 </div>
                             </div>
+
                             <br>
                             <a href="<?= base_url('pengembalian') ?>" class="btn btn-sm btn-danger float-right">
                                 Batal</a>
                             <button type="submit" name="create" class="btn btn-sm btn-info float-right mr-1">
                                 Simpan</button>
                         </form>
+                        <form style="display: none">
+                            <input type="text" id="result" disabled>
+                            <input type="text" id="lamapinjam" disabled>
+                            <input type="text" id="hasil" disabled>
+                            
+                        </form>
+
+                        <!-- <script>
+                            const startDate = document.querySelector('#input3');
+                            const endDate = document.querySelector('#tanggal_kembali');
+                            const result = document.querySelector('#result');
+
+                            startDate.addEventListener('input', calculate);
+                            endDate.addEventListener('input', calculate);
+
+                            function calculate() {
+                                const start = new Date(startDate.value);
+                                const end = new Date(endDate.value);
+                                const diffTime = Math.abs(end - start);
+                                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                result.value = diffDays;
+                            }
+                        </script>
+                        <script>
+                            const number1 = document.querySelector('#result');
+                            const number2 = document.querySelector('#total_buku');
+                            const result2 = document.querySelector('#result2');
+
+                            number1.addEventListener('input', calculate2);
+                            number2.addEventListener('input', calculate2);
+
+                            function calculate2() {
+                                result2.value = parseInt(number1.value) * parseInt(number2.value);
+                            }
+                        </script>
+                        <script>
+                            const lamapinjam = document.querySelector('#result');
+                            const lamapinjam2 = document.querySelector('#lamapinjam');
+                            const hasil = document.querySelector('#hasil');
+
+                            lamapinjam.addEventListener('input', calculate3);
+                            lamapinjam2.addEventListener('input', calculate3);
+
+                            function calculate3() {
+                                hasil.value = parseInt(lamapinjam.value) - parseInt(lamapinjam2.value);
+                            }
+                        </script> -->
+
                     </div>
                 </div>
             </div>

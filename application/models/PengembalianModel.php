@@ -14,8 +14,12 @@ class PengembalianModel extends CI_Model {
     }
 
     public function get_pengembalian_byid($id){
-        
-        return $this->db->get_where($this->tabel, ['id_kembali' => $id]) ->row();
+        $q = "select pengembalian.*, anggota.nama_anggota, buku.judul_buku from pengembalian 
+        inner join anggota on pengembalian.nisn = anggota.nisn 
+        inner join buku on pengembalian.isbn = buku.isbn 
+        where pengembalian.id_kembali = '$id'";
+        return $this->db->query($q)->row();
+        //return $this->db->get_where($this->tabel, ['id_kembali' => $id]) ->row();
     }
     public function CreateCode(){
         $this->db->select('RIGHT(pengembalian.kd_kembali,5) as kd_kembali', FALSE);
