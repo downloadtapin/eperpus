@@ -46,7 +46,7 @@
                     <?php if (isset($error)) { ?>
                         <div style="color:red;"> <?php echo $error; ?> </div>
                     <?php } ?>
-                    <form action="<?php echo base_url(); ?>Auth/do_login" method="post">
+                    <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post">
                         <label>Username:</label>
                         <input type="text" name="username" required />
                         <br>

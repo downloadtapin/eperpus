@@ -20,6 +20,14 @@ class Peminjaman extends CI_Controller {
         $this->load->view('peminjaman/peminjaman_read', $data);
         $this->load->view('template/footer');
 	}
+    public function index2($id)
+    {
+        $data['results'] = $this->PeminjamanModel->get_peminjaman2($id);
+        $this->load->view('template/header', $data);
+        $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman();
+        $this->load->view('peminjaman/peminjaman_read', $data);
+        $this->load->view('template/footer');
+    }
 
     public function tambah(){
         if(isset($_POST['create'])){

@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class PeminjamanModel extends CI_Model {
+class PeminjamanModel extends CI_Model
+{
 
     private $tabel = "peminjaman";
     private $view = "tampil_pinjam";
@@ -14,27 +15,36 @@ class PeminjamanModel extends CI_Model {
         //return $this->db->get('tampil_pinjam')->result_array();
         //return $this->db->get($this->tabel)->result();
     }
-
-    public function get_peminjaman_byid($id){
-        return $this->db->get_where($this->tabel, ['id_pinjam' => $id]) ->row();
-    }
-    public function CreateCode(){
-        $this->db->select('RIGHT(peminjaman.kd_pinjam,5) as kd_pinjam', FALSE);
-        $this->db->order_by('kd_pinjam','DESC');    
-        $this->db->limit(1);    
+    public function get_peminjaman2($id)
+    {
+        $this->db->where('id_pinjam', $id);
         $query = $this->db->get('peminjaman');
-            if($query->num_rows() <> 0){      
-                 $data = $query->row();
-                 $kode = intval($data->kd_pinjam) + 1; 
-            }
-            else{      
-                 $kode = 1;  
-            }
-        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
-        $kodetampil = "KDP".$batas;
-        return $kodetampil;  
+        return $query->result_array();
     }
-    public function insert_peminjaman(){
+
+
+    public function get_peminjaman_byid($id)
+    {
+        return $this->db->get_where($this->tabel, ['id_pinjam' => $id])->row();
+    }
+    public function CreateCode()
+    {
+        $this->db->select('RIGHT(peminjaman.kd_pinjam,5) as kd_pinjam', FALSE);
+        $this->db->order_by('kd_pinjam', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('peminjaman');
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kd_pinjam) + 1;
+        } else {
+            $kode = 1;
+        }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);
+        $kodetampil = "KDP" . $batas;
+        return $kodetampil;
+    }
+    public function insert_peminjaman()
+    {
         $data = [
             'kd_pinjam' => $this->input->post('kd_pinjam'),
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
@@ -47,7 +57,8 @@ class PeminjamanModel extends CI_Model {
         $this->db->insert($this->tabel, $data);
     }
 
-    public function update_peminjaman(){
+    public function update_peminjaman()
+    {
         $data = [
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
             'nama_anggota' => $this->input->post('nama_anggota'),
@@ -60,9 +71,9 @@ class PeminjamanModel extends CI_Model {
         $this->db->update($this->tabel, $data);
     }
 
-    public function delete_peminjaman($id){
+    public function delete_peminjaman($id)
+    {
         $this->db->where('id_pinjam', $id);
         $this->db->delete($this->tabel);
     }
-    
 }
