@@ -83,6 +83,9 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li>
+                            <a class="nav-link" href="<?php echo base_url('Auth/logout')?>"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

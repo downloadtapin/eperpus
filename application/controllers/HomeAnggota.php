@@ -13,6 +13,7 @@ class HomeAnggota extends CI_Controller {
         $data['title'] = "Dashboard | PERPUSTAKAAN";
         $data['username'] = $this->session->userdata('username');
         $data['role'] = $this->session->userdata('role_id');
+        $data['id_anggota'] = $this->session->userdata('id_anggota');
 		$this->load->view('template/header', $data);
         $this->load->view('home_view');
         //$this->load->view('dashboard/dashboard');

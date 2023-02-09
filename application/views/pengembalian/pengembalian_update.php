@@ -118,7 +118,7 @@
                             <br>
                             <a href="<?= base_url('pengembalian') ?>" class="btn btn-sm btn-danger float-right">
                                 Batal</a>
-                            <button type="submit" name="create" class="btn btn-sm btn-info float-right mr-1">
+                            <button type="submit" name="update" class="btn btn-sm btn-info float-right mr-1">
                                 Simpan</button>
                         </form>
                     </div>

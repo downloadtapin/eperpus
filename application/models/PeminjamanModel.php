@@ -17,9 +17,13 @@ class PeminjamanModel extends CI_Model
     }
     public function get_peminjaman2($id)
     {
-        $this->db->where('id_pinjam', $id);
-        $query = $this->db->get('peminjaman');
-        return $query->result_array();
+        $this->db->select('*');
+        $this->db->from('peminjaman');
+        $this->db->where('nisn', $id);
+        $query = $this->db->get();
+
+        // mengembalikan hasil query
+        return $query;
     }
 
 
@@ -75,5 +79,13 @@ class PeminjamanModel extends CI_Model
     {
         $this->db->where('id_pinjam', $id);
         $this->db->delete($this->tabel);
+    }
+
+    public function DataPeminjaman($id) {
+        $this->db->select('*');
+        $this->db->from('peminjaman');
+        $this->db->where('nisn', $id);
+        $query = $this->db->get();
+        return $query->result();
     }
 }

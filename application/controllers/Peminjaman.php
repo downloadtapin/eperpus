@@ -22,9 +22,10 @@ class Peminjaman extends CI_Controller {
 	}
     public function index2($id)
     {
-        $data['results'] = $this->PeminjamanModel->get_peminjaman2($id);
+        
+        
+        $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman2($id);
         $this->load->view('template/header', $data);
-        $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman();
         $this->load->view('peminjaman/peminjaman_read', $data);
         $this->load->view('template/footer');
     }

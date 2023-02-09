@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Admin</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>">
     </script>
@@ -83,16 +83,14 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="assets/gambar/logo.PNG" alt="logo"></a><span class="splash-description">SISTEM INFORMASI PERPUSTAKAAN SMK NEGERI 1 RANTAU
-                </span></div>
+            <div class="card-header text-center">LOGIN ADMIN</div>
             <div class="card-body">
-
                 <body>
                     <?php if (isset($error)) { ?>
                         <div style="color:red;"> <?php echo $error; ?> </div>
                     <?php } ?>
-                    <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post">
-                    <input type="text"name="username" placeholder="Username" required>
+                    <form action="<?php echo base_url(); ?>Admin/aksi_login" method="post">
+                        <input type="text"name="username" placeholder="Username" required>
                         <input type="password"name="password" placeholder="Password" required>
                         <button type="submit">Login</button>
                     </form>

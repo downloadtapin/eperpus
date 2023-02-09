@@ -53,8 +53,10 @@ class PengembalianModel extends CI_Model {
 
     public function update_pengembalian(){
         $data = [
-            'buku_id' => $this->input->post('buku_id'),
-            'anggota_id' => $this->input->post('anggota_id'),
+            'kd_kembali' => $this->input->post('kd_kembali'),
+            'kd_pinjam' => $this->input->post('kd_pinjam'),
+            'isbn' => $this->input->post('isbn'),
+            'nisn' => $this->input->post('nisn'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
             'total_buku' => $this->input->post('total_buku'),
             'denda' => $this->input->post('denda')

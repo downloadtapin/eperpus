@@ -45,6 +45,20 @@
                             </div>
                             <br>
                             <div class="from-group row">
+                                <label for="" class="col-md-3">Username</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="username" required placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="from-group row">
+                                <label for="" class="col-md-3">Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" name="password" required placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="from-group row">
                                 <label for="" class="col-md-3">Nama Lengkap</label>
                                 <div class="col-md-9">
                                     <input type="text" name="nama_anggota" required placeholder="Nama Lengkap" class="form-control">

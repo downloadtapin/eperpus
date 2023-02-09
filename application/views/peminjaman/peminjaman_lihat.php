@@ -36,12 +36,7 @@
                 <div class="card">
                     <div class="card-header">
                         Data Peminjaman Buku
-                        <a href="<?= base_url('peminjaman/tambah') ?>" class="btn btn-sm btn-success float-right">
-                            <i class="fa fa-plus"></i>Tambah Data
-                        </a>
-                        <a href="#" target="_blank" class="btn btn-sm btn-info float-right mr-1">
-                            <i class="fa fa-print"></i>Cetak Data
-                        </a>
+                        
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -49,11 +44,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal Pinjam</th>
-
                                     <th>NISN</th>
                                     <th>ISBN</th>
                                     <th>Lama Pinjam</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,20 +59,15 @@
                                             <td>" . $a->nisn . "</td>
                                             <td>" . $a->isbn . "</td>     
                                             <td>" . $a->lama_pinjam . " Hari</td>                      
-                                            <td>
-                                                <a href=" . base_url('peminjaman/ubah/' . $a->id_pinjam) . " class='btn btn-info btn-sm'>
-                                                    <i class='fa fa-edit'></i> Ubah
-                                                </a>
-                                                <a href=" . base_url('peminjaman/hapus/' . $a->id_pinjam) . " class='btn btn-danger btn-sm'
-                                                    onclick='return confirm(\"ingin hapus data ini?\")'>
-                                                    <i class='fa fa-trash'></i> hapus
-                                                </a>
-                                            </td>
+                                            
                                             </tr>";
                                 }
                                 ?>
                             </tbody>
                         </table>
+                        <br>
+                        <br>
+                        <a href="<?= base_url('HomeAnggota') ?>" class="btn btn-sm btn-danger float-right"> Kembali</a>
                     </div>
                 </div>
             </div>

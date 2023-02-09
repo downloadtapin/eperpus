@@ -21,21 +21,40 @@
 
         if (isset($_SESSION["role_id"]) && $_SESSION["role_id"] === "2") {
             echo '<style> .menuadmin { display: none; } </style>';
+            echo '<style> .menuuser { display: block; } </style>';
         } else if (isset($_SESSION["role_id"]) && $_SESSION["role_id"] === "1") {
             echo '<style> .menuadmin { display: block; } </style>';
+            echo '<style> .menuuser { display: none; } </style>';
         }
         ?>
         <!-- ============================================================== -->
         <!-- pagehader  -->
         <!-- ============================================================== -->
-        <div class=" container py-3">
+        <div class="menuuser container py-3">
             <div class="row col-lg-10 mx-auto">
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                            <h5 class="text-muted">Data Buku</h5>
+                            <div class="metric-value d-inline-block">
+                                <a href="<?php echo base_url('AnggotaLihat/DataBuku'); ?>">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="col-md-5 py-3">
                     <div class="card round h-100">
                         <div class="card-body">
                             <h5 class="text-muted">Profil Anggota</h5>
                             <div class="metric-value d-inline-block">
-                                <a href="<?php echo base_url('Buku'); ?>">
+                                <a href="<?php echo base_url('AnggotaLihat/ProfilAnggota/'.$this->session->userdata("id_anggota").''); ?>">
                                     <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -52,7 +71,85 @@
                         <div class="card-body">
                             <h5 class="text-muted">History Peminjaman</h5>
                             <div class="metric-value d-inline-block">
-                                <a href="<?php echo base_url('peminjaman/index2/'.$this->session->userdata("role_id")); ?>">
+                                <a href="<?php echo base_url('AnggotaLihat/DataPeminjaman/' . $this->session->userdata("nisn")); ?>">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                        <a class="btn btn-sm btn-danger float-right" href="<?php echo base_url('Auth/logout')?>"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menuadmin container py-3">
+            <div class="row col-lg-10 mx-auto">
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                            <h5 class="text-muted">Data Buku</h5>
+                            <div class="metric-value d-inline-block">
+                                <a href="<?php echo base_url('Buku'); ?>">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                            <h5 class="text-muted">Data Anggota</h5>
+                            <div class="metric-value d-inline-block">
+                                <a href="<?php echo base_url('anggota' . $this->session->userdata("nisn")); ?>">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                            <h5 class="text-muted">Data Peminjaman</h5>
+                            <div class="metric-value d-inline-block">
+                                <a href="<?php echo base_url('peminjaman' . $this->session->userdata("nisn")); ?>">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 py-3">
+                    <div class="card round h-100">
+                        <div class="card-body">
+                            <h5 class="text-muted">Data Pengembalian</h5>
+                            <div class="metric-value d-inline-block">
+                                <a href="<?php echo base_url('pengembalian' . $this->session->userdata("nisn")); ?>">
                                     <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -65,5 +162,4 @@
                     </div>
                 </div>
             </div>
-            
         </div>
