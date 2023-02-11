@@ -32,7 +32,7 @@ class Pengembalian extends CI_Controller
             $data['anggota'] = $this->AnggotaModel->get_anggota();
             $data['peminjaman'] = $this->PeminjamanModel->get_peminjaman();
             $data['kode'] = $this->PengembalianModel->CreateCode();
-
+            
             $data['buku'] = $this->BukuModel->get_buku();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');

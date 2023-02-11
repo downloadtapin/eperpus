@@ -50,14 +50,19 @@ class AnggotaModel extends CI_Model {
     }
 
     public function update_anggota(){
+        $password = md5($this->input->post('password'));
+        $role_id = 2 ;
         $data = [
             'kd_anggota' => $this->input->post('kd_anggota'),
             'nisn' => $this->input->post('nisn'),
+            'username' => $this->input->post('username'),
+            'password' => $password,
             'nama_anggota' => $this->input->post('nama_anggota'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'kelas_id' => $this->input->post('kelas_id'),
             'alamat' => $this->input->post('alamat'),
-            'no_telp' => $this->input->post('no_telp')
+            'no_telp' => $this->input->post('no_telp'),
+            'role_id' => $role_id
         ];
         $this->db->where('id_anggota', $this->input->post('id_anggota'));
         $this->db->update($this->tabel, $data);

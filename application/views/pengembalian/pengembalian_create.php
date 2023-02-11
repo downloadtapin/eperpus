@@ -106,12 +106,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="from-group row">
-                                <label for="" class="col-md-3">Denda</label>
-                                <div class="col-md-9">
-                                    <input type="text" id="result2" name="denda" required placeholder="Denda" class="form-control">
-                                </div>
-                            </div>
+                            <input type="text" name="lama_pinjam" id="lamapinjam" >
 
                             <br>
                             <a href="<?= base_url('pengembalian') ?>" class="btn btn-sm btn-danger float-right">
@@ -119,12 +114,7 @@
                             <button type="submit" name="create" class="btn btn-sm btn-info float-right mr-1">
                                 Simpan</button>
                         </form>
-                        <form style="display: none">
-                            <input type="text" id="result" disabled>
-                            <input type="text" id="lamapinjam" disabled>
-                            <input type="text" id="hasil" disabled>
-                            
-                        </form>
+                        
 
                         <!-- <script>
                             const startDate = document.querySelector('#input3');

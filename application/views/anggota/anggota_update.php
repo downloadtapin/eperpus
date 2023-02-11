@@ -46,6 +46,20 @@
                             </div>
                             <br>
                             <div class="from-group row">
+                                <label for="" class="col-md-2">Username</label>
+                                <div class="col-md-10">
+                                    <input type="text"value="<?= $anggota->username ?>" name="username" required placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="from-group row">
+                                <label for="" class="col-md-2">Password Baru</label>
+                                <div class="col-md-10">
+                                    <input type="password"  required placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="from-group row">
                                 <label for="" class="col-md-2">Nama Lengkap</label>
                                 <div class="col-md-10">
                                     <input type="text" name="nama_anggota" value="<?= $anggota->nama_anggota ?>" required placeholder="Nama Lengkap" class="form-control">

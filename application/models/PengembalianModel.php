@@ -38,6 +38,15 @@ class PengembalianModel extends CI_Model {
         return $kodetampil;  
     }
     public function insert_pengembalian(){
+        $tanggal_pinjam = strtotime($this->input->post('tanggal_pinjam'));
+        $tanggal_kembali = strtotime($this->input->post('tanggal_kembali'));
+        $total_buku = $this->input->post('total_buku');
+        $lama = $this->input->post('lama_pinjam');
+        $lama_pinjam = ($tanggal_kembali - $tanggal_pinjam) / (60 * 60 * 24);
+        $denda = 0;
+        if ($lama_pinjam > $lama) {
+            $denda = ($lama_pinjam - $lama) * 500 * $total_buku;
+        } 
         $data = [
             'kd_kembali' => $this->input->post('kd_kembali'),
             'kd_pinjam' => $this->input->post('kd_pinjam'),
@@ -45,8 +54,8 @@ class PengembalianModel extends CI_Model {
             'nisn' => $this->input->post('nisn'),
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'total_buku' => $this->input->post('total_buku'),
-            'denda' => $this->input->post('denda')
+            'total_buku' => $lama,
+            'denda' => $denda
         ];
         $this->db->insert($this->tabel, $data);
     }
