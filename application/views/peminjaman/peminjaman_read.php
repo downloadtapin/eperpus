@@ -39,9 +39,6 @@
                         <a href="<?= base_url('peminjaman/tambah') ?>" class="btn btn-sm btn-success float-right">
                             <i class="fa fa-plus"></i>Tambah Data
                         </a>
-                        <a href="#" target="_blank" class="btn btn-sm btn-info float-right mr-1">
-                            <i class="fa fa-print"></i>Cetak Data
-                        </a>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -49,7 +46,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal Pinjam</th>
-
                                     <th>NISN</th>
                                     <th>ISBN</th>
                                     <th>Lama Pinjam</th>

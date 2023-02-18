@@ -6,14 +6,14 @@ class Anggota extends CI_Controller {
     function __construct() 
     {
         parent::__construct();
-        $this->load->model(array('KelasModel','AnggotaModel'));
+        $this->load->model('AnggotaModel');
     }
 	
 	public function index()
 	{
         $data['title'] = "Data Anggota Perpustakaan | PERPUSTAKAAN";
         $data['anggota'] = $this->AnggotaModel->get_anggota();
-        $data['kelas'] = $this->KelasModel->get_kelas();
+        //$data['kelas'] = $this->KelasModel->get_kelas();
 		$this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('anggota/anggota_read', $data);
@@ -26,7 +26,7 @@ class Anggota extends CI_Controller {
             redirect('anggota');
         }else{
             $data['title'] = "Tambah Data Anggota Perpustakaan | PERPUSTAKAAN";
-            $data['kelas'] = $this->KelasModel->get_kelas();
+            //$data['kelas'] = $this->KelasModel->get_kelas();
             $data['kode'] = $this->AnggotaModel->CreateCode();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
@@ -42,7 +42,7 @@ class Anggota extends CI_Controller {
         }else{
             $data['title'] = "Perbaharui Data Anggota Perpustakaan | PERPUSTAKAAN";
             $data['anggota'] = $this->AnggotaModel->get_anggota_byid($id);
-            $data['kelas'] = $this->KelasModel->get_kelas();
+            //$data['kelas'] = $this->KelasModel->get_kelas();
             
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');

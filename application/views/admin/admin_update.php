@@ -44,18 +44,18 @@
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Username</label>
+                                <label for="" class="col-md-2">Tempat Lahir</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="username" value="<?= $petugas->username ?>" required
-                                        placeholder="Username" class="form-control">
+                                    <input type="text" name="tempat_lahir" value="<?= $petugas->tempat_lahir ?>" required
+                                        placeholder="Tempat Lahir" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Password</label>
+                                <label for="" class="col-md-2">Tanggal Lahir</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="password" value="<?= $petugas->password ?>" required
-                                        placeholder="Password" class="form-control">
+                                    <input type="date" name="tanggal_lahir" value="<?= $petugas->tanggal_lahir ?>" required
+                                        placeholder="Tanggal Lahir" class="form-control">
                                 </div>
                             </div>
                             <br>

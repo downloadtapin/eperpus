@@ -7,9 +7,9 @@ class AnggotaModel extends CI_Model {
 
     public function get_anggota()
     {
-        $q = "select anggota.*, kelas.nama_kelas from anggota inner join kelas on anggota.kelas_id = kelas.id_kelas";
-        return $this->db->query($q)->result();
-        //return $this->db->get($this->tabel)->result();
+        //$q = "select anggota.*, kelas.nama_kelas from anggota inner join kelas on anggota.kelas_id = kelas.id_kelas";
+        //return $this->db->query($q)->result();
+        return $this->db->get($this->tabel)->result();
     }
     public function CreateCode(){
         $this->db->select('RIGHT(anggota.kd_anggota,5) as kd_anggota', FALSE);
@@ -41,7 +41,6 @@ class AnggotaModel extends CI_Model {
             'password' => $password,
             'nama_anggota' => $this->input->post('nama_anggota'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'kelas_id' => $this->input->post('kelas_id'),
             'alamat' => $this->input->post('alamat'),
             'no_telp' => $this->input->post('no_telp'),
             'role_id' => $role_id
@@ -59,7 +58,6 @@ class AnggotaModel extends CI_Model {
             'password' => $password,
             'nama_anggota' => $this->input->post('nama_anggota'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'kelas_id' => $this->input->post('kelas_id'),
             'alamat' => $this->input->post('alamat'),
             'no_telp' => $this->input->post('no_telp'),
             'role_id' => $role_id
@@ -71,6 +69,18 @@ class AnggotaModel extends CI_Model {
     public function delete_anggota($id){
         $this->db->where('id_anggota', $id);
         $this->db->delete($this->tabel);
+    }
+    public function filterData($search, $startDate, $endDate)
+    {
+        $this->db->select('*');
+        $this->db->from('anggota');
+        
+        if (!empty($startDate) && !empty($endDate)) {
+            $this->db->where('tanggal >=', $startDate);
+            $this->db->where('tanggal <=', $endDate);
+        }
+        $query = $this->db->get();
+        return $query->result();
     }
     
 }

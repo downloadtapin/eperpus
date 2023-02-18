@@ -30,9 +30,6 @@
                         <a href="<?= base_url('buku/tambah')?>" class="btn btn-sm btn-success float-right">
                             <i class="fa fa-plus"></i>Tambah Data
                         </a>
-                        <a href="#" target="_blank" class="btn btn-sm btn-info float-right mr-1">
-                            <i class="fa fa-print"></i>Cetak Data
-                        </a>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -66,7 +63,7 @@
                                             <td>".$a->penerbit."</td>
                                             <td>".$a->tahun_terbit."</td>
                                             <td>".$a->stok_buku."</td> 
-                                            <td>".$a->harga_buku."</td>  
+                                            <td> Rp.".$a->harga_buku."</td>  
                                             <td>".$a->nama_rak."</td>                     
                                             <td>
                                                 <a href=".base_url('buku/ubah/'.$a->id_buku)." class='btn btn-info btn-sm'>

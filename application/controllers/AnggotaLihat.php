@@ -12,6 +12,7 @@ class AnggotaLihat extends CI_Controller
 
     public function DataBuku()
     {
+        $data['title'] = "Data Buku Perpustakaan | PERPUSTAKAAN";
         $data['buku'] = $this->BukuModel->get_buku();
         $data['penerbit'] = $this->PenerbitModel->get_penerbit();
         $data['penulisbuku'] = $this->PenulisModel->get_penulis();
@@ -22,7 +23,7 @@ class AnggotaLihat extends CI_Controller
     }
     public function ProfilAnggota($id)
     {
-        $data['title'] = "Perbaharui Data Anggota Perpustakaan | PERPUSTAKAAN";
+        $data['title'] = "Profil Anggota Perpustakaan | PERPUSTAKAAN";
         $data['anggota'] = $this->AnggotaModel->get_anggota_byid($id);
         $data['kelas'] = $this->KelasModel->get_kelas();
 
@@ -34,7 +35,7 @@ class AnggotaLihat extends CI_Controller
 
     public function DataPeminjaman($id)
     {
-
+        $data['title'] = "History Peminjaman | PERPUSTAKAAN";
         $id = $this->session->userdata('nisn');
         $data['peminjaman'] = $this->PeminjamanModel->DataPeminjaman($id);
 

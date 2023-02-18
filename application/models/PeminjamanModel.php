@@ -88,4 +88,18 @@ class PeminjamanModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function filterData($search, $startDate, $endDate)
+    {
+        $this->db->select('peminjaman.*, anggota.nisn, buku.isbn');
+        $this->db->from('peminjaman');
+        $this->db->join('anggota', 'peminjaman.nisn = anggota.nisn');
+        $this->db->join('buku', 'peminjaman.isbn = buku.isbn');
+        
+        if (!empty($startDate) && !empty($endDate)) {
+            $this->db->where('tanggal_pinjam >=', $startDate);
+            $this->db->where('tanggal_pinjam <=', $endDate);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

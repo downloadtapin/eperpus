@@ -99,13 +99,6 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="from-group row">
-                                <label for="" class="col-md-3">Total Pinjam Buku</label>
-                                <div class="col-md-9">
-                                    <input type="text" id="total_buku" name="total_buku" required placeholder="Total Pinjam Buku" class="form-control">
-                                </div>
-                            </div>
-                            <br>
                             <input type="text" name="lama_pinjam" id="lamapinjam" >
 
                             <br>

@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h3 class="mb-2">Perpustakaan Dashboard </h3>
+                    <h3 class="mb-2">Perpustakaan</h3>
                     <p class="pageheader-text">Lorem ipsum dolor sit ametllam fermentum ipsum eu porta consectetur adipiscing elit.Nullam vehicula nulla ut egestas rhoncus.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link"><i class="fas fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Perpustakaan Dashboard</li>
+                                <li class="breadcrumb-item active" aria-current="page">Perpustakaan</li>
                             </ol>
                         </nav>
                     </div>
@@ -86,7 +86,7 @@
                 <div class="col-md-5 py-3">
                     <div class="card round h-100">
                         <div class="card-body">
-                        <a class="btn btn-sm btn-danger float-right" href="<?php echo base_url('Auth/logout')?>"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        <a class="btn btn-md btn-danger" href="<?php echo base_url('Auth/logout')?>"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </div>
                 </div>

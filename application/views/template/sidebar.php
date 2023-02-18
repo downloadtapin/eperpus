@@ -14,7 +14,7 @@
                                 <a class="nav-link" href="<?php echo base_url('home')?>"><i class="fas fa-tachometer" aria-hidden="true"></i>Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('btamu')?>"><i class="fas fa-addres-book"></i>Buku Kunjungan Tamu</a>
+                                <a class="nav-link" href="<?php echo base_url('btamu')?>"><i class="fas fa-addres-book"></i>Kunjungan Tamu</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-database"></i>Master Data</a>

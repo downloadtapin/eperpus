@@ -34,6 +34,7 @@
         <hr class="solid">
         <div style="text-align: center;">
             <h4>LAPORAN PENGEMBALIAN BUKU PERPUSTAKAAN</h4>
+            <h4>PER TANGGAL</h4>
         </div>
         <table border="1" style="width: 100%;">
             <tr>
@@ -41,22 +42,57 @@
                 <th>Judul Buku</th>
                 <th>Nama Anggota</th>
                 <th>Tanggal Kembali</th>
-                <th>Total Buku</th>
+                <th>Lama Pinjam</th>
                 <th>Denda</th>
             </tr>
             <?php
             $no = 1;
-            foreach ($pengembalian as $a) {
+            foreach ($data as $a) {
                 echo "<tr>
                     <td>" . $no++ . "</td>
                     <td>" . $a->judul_buku . "</td>
                     <td>" . $a->nama_anggota . "</td>
                     <td>" . $a->tanggal_kembali . "</td>  
-                    <td>" . $a->total_buku . "</td>
+                    <td>" . $a->lama_pinjam . "</td>
                     <td>" . $a->denda . "</td>                  
                     </tr>";
             }
             ?>
         </table>
+        <?php
+        function tanggal_indonesia($tanggal){
+            $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+            );
+            
+            $pecahkan = explode('-', $tanggal);
+            
+            // variabel pecahkan 0 = tanggal
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tahun
+             
+            return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+        }
+        
+         
+        
+    ?>
+
+        <div  style="text-align: center;float: right;">
+            <h4>Rantau, <?php echo tanggal_indonesia(date('Y-m-d'));?><br>
+                Petugas Perpustakaan</h4>
+            <br><Br>
+            <h4>Nur Aulia Aridha</h4>
+        </div>
     </div>
-</div>

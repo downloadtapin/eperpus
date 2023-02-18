@@ -30,9 +30,6 @@
                         <a href="<?= base_url('anggota/tambah')?>" class="btn btn-sm btn-success float-right">
                             <i class="fa fa-plus"></i>Tambah Data
                         </a>
-                        <a href="#" target="_blank" class="btn btn-sm btn-info float-right mr-1">
-                            <i class="fa fa-print"></i>Cetak Data
-                        </a>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -43,7 +40,6 @@
                                     <th>NISN</th>
                                     <th>Nama Lengkap</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Kelas</th>
                                     <th>Alamat</th>
                                     <th>No Telepon</th>
                                     <th>Aksi</th>
@@ -63,8 +59,7 @@
                                             <td>".$a->kd_anggota."</td>
                                             <td>".$a->nisn."</td>
                                             <td>".$a->nama_anggota."</td>
-                                            ".$jkel."
-                                            <td>".$a->nama_kelas."</td>     
+                                            ".$jkel."    
                                             <td>".$a->alamat."</td>
                                             <td>".$a->no_telp."</td>                       
                                             <td>

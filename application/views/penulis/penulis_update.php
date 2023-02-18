@@ -32,14 +32,14 @@
                         <form action="" method="post">
                             <input type="hidden" name="id_penulis" value="<?= $penulis->id_penulis?>">
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Kode Peulis</label>
+                                <label for="" class="col-md-2">Kode Penulis</label>
                                 <div class="col-md-10">
                                     <input type="text" name="kd_penulis" value="<?= $penulis->kd_penulis ?>" required placeholder="Kode Penulis" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Penulis</label>
+                                <label for="" class="col-md-2">Nama Penulis</label>
                                 <div class="col-md-10">
                                     <input type="text" name="penulis" value="<?= $penulis->penulis ?>" required placeholder="Penulis" class="form-control">
                                 </div>

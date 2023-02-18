@@ -34,6 +34,7 @@
         <hr class="solid">
         <div style="text-align: center;">
             <h4>LAPORAN ANGGOTA PERPUSTAKAAN</h4>
+            <h6>PER TANGGAL</h6>
         </div>
         <table border="1" style="width: 100%;">
             <tr>
@@ -42,6 +43,9 @@
                 </td>
                 <td>
                     Kode Anggota
+                </td>
+                <td>
+                    Tanggal
                 </td>
                 <td>
                     NISN
@@ -56,27 +60,59 @@
                     Alamat
                 </td>
                 <td>
-                    Nama Kelas
-                </td>
-                <td>
                     No Telepon
                 </td>
             </tr>
             <?php
             $no = 1;
-            foreach ($anggota as $a) {
+            foreach ($data as $a) {
                 echo "<tr>
                     <td>" . $no++ . "</td>
                     <td>" . $a->kd_anggota . "</td>
+                    <td>" . $a->tanggal . "</td>
                     <td>" . $a->nisn . "</td>
                     <td>" . $a->nama_anggota . "</td>
                     <td>" . $a->jenis_kelamin . "</td>
-                    <td>" . $a->alamat . "</td>
-                    <td>" . $a->nama_kelas . "</td>     
+                    <td>" . $a->alamat . "</td>   
                     <td>" . $a->no_telp . "</td>                       
                     </tr>";
             }
             ?>
         </table>
+        <?php
+        function tanggal_indonesia($tanggal){
+            $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+            );
+            
+            $pecahkan = explode('-', $tanggal);
+            
+            // variabel pecahkan 0 = tanggal
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tahun
+             
+            return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+        }
+        
+         
+        
+    ?>
+
+        <div  style="text-align: center;float: right;">
+            <h4>Rantau, <?php echo tanggal_indonesia(date('Y-m-d'));?><br>
+                Petugas Perpustakaan</h4>
+            <br><Br>
+            <h4>Nur Aulia Aridha</h4>
+        </div>
     </div>
-</div>

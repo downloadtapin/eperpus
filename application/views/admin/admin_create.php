@@ -43,17 +43,17 @@
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-3">Username</label>
+                                <label for="" class="col-md-3">Tempat Lahir</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="username" required placeholder="Username"
+                                    <input type="text" name="tempat_lahir" required placeholder="Tempat Lahir"
                                         class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-3">Password</label>
+                                <label for="" class="col-md-3">Tanggal Lahir</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="password" required placeholder="Password"
+                                    <input type="date" name="tanggal_lahir" required placeholder="Tanggal Lahir"
                                         class="form-control">
                                 </div>
                             </div>

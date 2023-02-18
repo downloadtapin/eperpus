@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class BukuModel extends CI_Model {
+class BukuModel extends CI_Model
+{
 
     private $tabel = "buku";
 
@@ -12,26 +13,28 @@ class BukuModel extends CI_Model {
         //return $this->db->get($this->tabel)->result();
     }
 
-    public function get_buku_byid($id){
-        return $this->db->get_where($this->tabel, ['id_buku' => $id]) ->row();
+    public function get_buku_byid($id)
+    {
+        return $this->db->get_where($this->tabel, ['id_buku' => $id])->row();
     }
-    public function CreateCode(){
+    public function CreateCode()
+    {
         $this->db->select('RIGHT(buku.kd_buku,5) as kd_buku', FALSE);
-        $this->db->order_by('kd_buku','DESC');    
-        $this->db->limit(1);    
+        $this->db->order_by('kd_buku', 'DESC');
+        $this->db->limit(1);
         $query = $this->db->get('buku');
-            if($query->num_rows() <> 0){      
-                 $data = $query->row();
-                 $kode = intval($data->kd_buku) + 1; 
-            }
-            else{      
-                 $kode = 1;  
-            }
-        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
-        $kodetampil = "KDB".$batas;
-        return $kodetampil;  
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kd_buku) + 1;
+        } else {
+            $kode = 1;
+        }
+        $batas = str_pad($kode, 5, "0", STR_PAD_LEFT);
+        $kodetampil = "KDB" . $batas;
+        return $kodetampil;
     }
-    public function insert_buku(){
+    public function insert_buku()
+    {
         $data = [
             'kd_buku' => $this->input->post('kd_buku'),
             'kategori_id' => $this->input->post('kategori_id'),
@@ -47,7 +50,8 @@ class BukuModel extends CI_Model {
         $this->db->insert($this->tabel, $data);
     }
 
-    public function update_buku(){
+    public function update_buku()
+    {
         $data = [
             'kd_buku' => $this->input->post('kd_buku'),
             'kategori_id' => $this->input->post('kategori_id'),
@@ -64,9 +68,28 @@ class BukuModel extends CI_Model {
         $this->db->update($this->tabel, $data);
     }
 
-    public function delete_buku($id){
+    public function delete_buku($id)
+    {
         $this->db->where('id_buku', $id);
         $this->db->delete($this->tabel);
     }
-    
+    public function filterData($search)
+    {
+        
+        $this->db->select('buku.*, kategoribuku.nama_kategori,
+        penulis.penulis, penerbit.penerbit, 
+        rak.nama_rak');
+        $this->db->from('buku');
+        $this->db->join('kategoribuku', 'buku.kategori_id = kategoribuku.id_kb');
+        $this->db->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit');
+        $this->db->join('penulis', 'penulis.id_penulis = buku.id_penulis');
+        $this->db->join('rak', 'rak.id_rak = buku.id_rak');
+        if (!empty($search)) {
+            $this->db->where('penerbit ', $search);
+
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

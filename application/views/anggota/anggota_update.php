@@ -84,21 +84,6 @@
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-2">Kelas</label>
-                                <div class="col-md-10">
-                                    <select name="kelas_id" required class="form-control">
-                                        <option value="">Pilih Kelas</option>
-                                        <?php
-                                        foreach($kelas as $a){
-                                            $selected = ($a->id_kelas == $anggota->kelas_id) ? "selected" : "";
-                                            echo "<option value='$a->id_kelas' $selected>$a->nama_kelas</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="from-group row">
                                 <label for="" class="col-md-2">Alamat</label>
                                 <div class="col-md-10">
                                     <input type="text" name="alamat" value="<?= $anggota->alamat ?>" required placeholder="Alamat" class="form-control">

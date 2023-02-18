@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class BTamuModel extends CI_Model {
+class BTamuModel extends CI_Model
+{
 
     private $tabel = "btamu";
 
@@ -12,11 +13,13 @@ class BTamuModel extends CI_Model {
         //return $this->db->get($this->tabel)->result();
     }
 
-    public function get_btamu_byid($id){
-        return $this->db->get_where($this->tabel, ['id_btamu' => $id]) ->row();
+    public function get_btamu_byid($id)
+    {
+        return $this->db->get_where($this->tabel, ['id_btamu' => $id])->row();
     }
 
-    public function insert_btamu(){
+    public function insert_btamu()
+    {
         $data = [
             'tanggal_kunjungan' => $this->input->post('tanggal_kunjungan'),
             'nama_lengkap' => $this->input->post('nama_lengkap'),
@@ -26,7 +29,8 @@ class BTamuModel extends CI_Model {
         $this->db->insert($this->tabel, $data);
     }
 
-    public function update_btamu(){
+    public function update_btamu()
+    {
         $data = [
             'tanggal_kunjungan' => $this->input->post('tanggal_kunjungan'),
             'nama_lengkap' => $this->input->post('nama_lengkap'),
@@ -37,9 +41,23 @@ class BTamuModel extends CI_Model {
         $this->db->update($this->tabel, $data);
     }
 
-    public function delete_btamu($id){
+
+    public function delete_btamu($id)
+    {
         $this->db->where('id_btamu', $id);
         $this->db->delete($this->tabel);
     }
-    
+    public function filterData($search, $startDate, $endDate)
+    {
+        $this->db->select('btamu.*, kelas.nama_kelas');
+        $this->db->from('btamu');
+        $this->db->join('kelas', 'btamu.kelas_id = kelas.id_kelas');
+        
+        if (!empty($startDate) && !empty($endDate)) {
+            $this->db->where('tanggal_kunjungan >=', $startDate);
+            $this->db->where('tanggal_kunjungan <=', $endDate);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

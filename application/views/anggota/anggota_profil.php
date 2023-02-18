@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Data Anggota Perpustakaan</h2>
+                    <h2 class="pageheader-title">Profil Anggota Perpustakaan</h2>
                     <div class="page-breadcrumb">
 
                     </div>
@@ -20,7 +20,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Anggota Perpustakaan
+                        Profil Anggota Perpustakaan
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
@@ -57,18 +57,6 @@
                                         }
                                         ?>
                                     <p> : <?php echo $jkel ?></p>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="from-group row">
-                                <label for="" class="col-md-3">Kelas :</label>
-                                <div class="col-md-5">
-                                    <p> : <?php
-                                        foreach($kelas as $a){
-                                            $selected = ($a->id_kelas == $anggota->kelas_id) ? "selected" : "";
-                                            echo $a->nama_kelas;
-                                        }
-                                        ?></p>
                                 </div>
                             </div>
                             <br>

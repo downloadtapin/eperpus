@@ -30,9 +30,6 @@
                         <a href="<?= base_url('pengembalian/tambah') ?>" class="btn btn-sm btn-success float-right">
                             <i class="fa fa-plus"></i>Tambah Data
                         </a>
-                        <a href="#" target="_blank" class="btn btn-sm btn-info float-right mr-1">
-                            <i class="fa fa-print"></i>Cetak Data
-                        </a>
                     </div>
                     <div class="card-body">
                         <?php
@@ -54,7 +51,7 @@
                                         <th>Judul Buku</th>
                                         <th>Nama Anggota</th>
                                         <th>Tanggal Kembali</th>
-                                        <th>Total Buku</th>
+                                        <th>Lama Pinjam</th>
                                         <th>Denda</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -68,8 +65,8 @@
                                             <td>" . $a->judul_buku . "</td>
                                             <td>" . $a->nama_anggota . "</td>
                                             <td>" . $a->tanggal_kembali . "</td>  
-                                            <td>" . $a->total_buku . "</td>
-                                            <td>" . $a->denda . "</td>                       
+                                            <td>" . $a->lama_pinjam . "</td>
+                                            <td> Rp." . $a->denda . "</td>                       
                                             <td>
                                                 <a href=" . base_url('pengembalian/ubah/' . $a->id_kembali) . " class='btn btn-info btn-sm'>
                                                     <i class='fa fa-edit'></i> Ubah

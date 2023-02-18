@@ -37,8 +37,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Lengkap</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Alamat</th>
                                     <th>No Telepon</th>
@@ -57,8 +57,8 @@
                                         echo "<tr>
                                             <td>".$no++."</td>
                                             <td>".$a->nama_lengkap."</td>
-                                            <td>".$a->username."</td>
-                                            <td>".$a->password."</td>  
+                                            <td>".$a->tempat_lahir."</td>
+                                            <td>".$a->tanggal_lahir."</td>  
                                             ".$jkel."
                                             <td>".$a->alamat."</td>
                                             <td>".$a->no_telp."</td>                      

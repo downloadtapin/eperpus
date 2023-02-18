@@ -47,7 +47,7 @@ class PenulisModel extends CI_Model {
     }
 
     public function delete_penulis($id){
-        $this->db->where('kd_penulis', $id);
+        $this->db->where('id_penulis', $id);
         $this->db->delete($this->tabel);
     }
     

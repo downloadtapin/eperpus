@@ -102,13 +102,6 @@
                             </div>
                             <br>
                             <div class="from-group row">
-                                <label for="" class="col-md-3">Total Pinjam Buku</label>
-                                <div class="col-md-9">
-                                    <input type="text" id="total_buku" value="<?= $pengembalian->total_buku ?>" name="total_buku" required placeholder="Total Pinjam Buku" class="form-control">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="from-group row">
                                 <label for="" class="col-md-3">Denda</label>
                                 <div class="col-md-9">
                                     <input type="text" id="result2" name="denda" value="<?= $pengembalian->denda ?>" required placeholder="Denda" class="form-control">

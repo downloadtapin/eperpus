@@ -40,12 +40,12 @@ class PengembalianModel extends CI_Model {
     public function insert_pengembalian(){
         $tanggal_pinjam = strtotime($this->input->post('tanggal_pinjam'));
         $tanggal_kembali = strtotime($this->input->post('tanggal_kembali'));
-        $total_buku = $this->input->post('total_buku');
+        //$total_buku = $this->input->post('total_buku');
         $lama = $this->input->post('lama_pinjam');
         $lama_pinjam = ($tanggal_kembali - $tanggal_pinjam) / (60 * 60 * 24);
         $denda = 0;
         if ($lama_pinjam > $lama) {
-            $denda = ($lama_pinjam - $lama) * 500 * $total_buku;
+            $denda = ($lama_pinjam - $lama) * 500 ;
         } 
         $data = [
             'kd_kembali' => $this->input->post('kd_kembali'),
@@ -54,7 +54,7 @@ class PengembalianModel extends CI_Model {
             'nisn' => $this->input->post('nisn'),
             'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'total_buku' => $lama,
+            'lama_pinjam' => $lama,
             'denda' => $denda
         ];
         $this->db->insert($this->tabel, $data);
@@ -67,7 +67,7 @@ class PengembalianModel extends CI_Model {
             'isbn' => $this->input->post('isbn'),
             'nisn' => $this->input->post('nisn'),
             'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-            'total_buku' => $this->input->post('total_buku'),
+            'lama_pinjam' => $this->input->post('lama_pinjam'),
             'denda' => $this->input->post('denda')
         ];
         $this->db->where('id_kembali', $this->input->post('id_kembali'));
@@ -77,6 +77,21 @@ class PengembalianModel extends CI_Model {
     public function delete_pengembalian($id){
         $this->db->where('id_kembali', $id);
         $this->db->delete($this->tabel);
+    }
+    public function filterData($search, $startDate, $endDate)
+    {   $q = "select pengembalian.*, anggota.nama_anggota, buku.judul_buku from pengembalian inner join anggota on pengembalian.nisn = anggota.nisn inner join buku
+        on pengembalian.isbn = buku.isbn";
+        $this->db->select('pengembalian.*, anggota.nama_anggota, buku.judul_buku');
+        $this->db->from('pengembalian');
+        $this->db->join('anggota', 'pengembalian.nisn = anggota.nisn');
+        $this->db->join('buku', 'pengembalian.isbn = buku.isbn');
+        
+        if (!empty($startDate) && !empty($endDate)) {
+            $this->db->where('tanggal_pinjam >=', $startDate);
+            $this->db->where('tanggal_pinjam <=', $endDate);
+        }
+        $query = $this->db->get();
+        return $query->result();
     }
     
 }
