@@ -34,9 +34,11 @@ class AnggotaModel extends CI_Model {
     public function insert_anggota(){
         $password = md5($this->input->post('password'));
         $role_id = 2 ;
+        $today = date('Y-m-d');
         $data = [
             'kd_anggota' => $this->input->post('kd_anggota'),
             'nisn' => $this->input->post('nisn'),
+            'tanggal' => $today,
             'username' => $this->input->post('username'),
             'password' => $password,
             'nama_anggota' => $this->input->post('nama_anggota'),
