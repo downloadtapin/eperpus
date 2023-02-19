@@ -75,7 +75,7 @@ class BukuModel extends CI_Model
     }
     public function filterData($search)
     {
-        
+
         $this->db->select('buku.*, kategoribuku.nama_kategori,
         penulis.penulis, penerbit.penerbit, 
         rak.nama_rak');
@@ -84,10 +84,7 @@ class BukuModel extends CI_Model
         $this->db->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit');
         $this->db->join('penulis', 'penulis.id_penulis = buku.id_penulis');
         $this->db->join('rak', 'rak.id_rak = buku.id_rak');
-        if (!empty($search)) {
-            $this->db->where('penerbit ', $search);
-
-        }
+        $this->db->where('buku.id_penerbit ', $search);
         $query = $this->db->get();
         return $query->result();
     }

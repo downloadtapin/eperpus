@@ -39,7 +39,7 @@
         <hr class="solid">
         <div style="text-align: center;">
             <h4>LAPORAN BUKU TAMU PERPUSTAKAAN</h4>
-            <h6>PER TANGGAL</h6>
+            <h6>PER TANGGAL <?php echo tanggal_indonesia($start); ?> - <?php echo tanggal_indonesia($end); ?></h6>
         </div>
         <table border="1" style="width: 100%;">
             <tr>

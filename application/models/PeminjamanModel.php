@@ -81,7 +81,8 @@ class PeminjamanModel extends CI_Model
         $this->db->delete($this->tabel);
     }
 
-    public function DataPeminjaman($id) {
+    public function DataPeminjaman($id)
+    {
         $this->db->select('*');
         $this->db->from('peminjaman');
         $this->db->where('nisn', $id);
@@ -94,11 +95,8 @@ class PeminjamanModel extends CI_Model
         $this->db->from('peminjaman');
         $this->db->join('anggota', 'peminjaman.nisn = anggota.nisn');
         $this->db->join('buku', 'peminjaman.isbn = buku.isbn');
-        
-        if (!empty($startDate) && !empty($endDate)) {
-            $this->db->where('tanggal_pinjam >=', $startDate);
-            $this->db->where('tanggal_pinjam <=', $endDate);
-        }
+        $this->db->where('tanggal_pinjam >=', $startDate);
+        $this->db->where('tanggal_pinjam <=', $endDate);
         $query = $this->db->get();
         return $query->result();
     }

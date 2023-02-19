@@ -8,7 +8,7 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
 
-        $this->load->model(array('PenerbitModel','BTamuModel', 'KategoriBukuModel', 'PengembalianModel', 'KelasModel', 'AnggotaModel', 'BukuModel', 'PeminjamanModel'));
+        $this->load->model(array('PenerbitModel', 'BTamuModel', 'KategoriBukuModel', 'PengembalianModel', 'KelasModel', 'AnggotaModel', 'BukuModel', 'PeminjamanModel'));
     }
 
     public function index()
@@ -32,7 +32,7 @@ class Laporan extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('laporan/filter_peminjaman', $data);
         $this->load->view('template/footer');
-        
+
     }
     public function LaporanPengembalianBuku()
     {
@@ -44,7 +44,7 @@ class Laporan extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('laporan/filter_pengembalian', $data);
         $this->load->view('template/footer');
-        
+
     }
 
     public function LaporanBuku()
@@ -57,7 +57,7 @@ class Laporan extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('laporan/filter_buku', $data);
         $this->load->view('template/footer');
-        
+
     }
     public function LaporanBTamu()
     {
@@ -70,46 +70,63 @@ class Laporan extends CI_Controller
         $this->load->view('template/footer');
 
     }
-    
-    public function printData() {
-        
-        $search = $this->input->post('search');
-        $startDate = $this->input->post('startDate');
-        $endDate = $this->input->post('endDate');
-        $data = $this->BTamuModel->filterData($search, $startDate, $endDate);
-        $this->load->view('laporan/laporan_btamu', array('data' => $data));
-    }
-    public function printDataAnggota() {
-        
-        $search = $this->input->post('search');
-        $startDate = $this->input->post('startDate');
-        $endDate = $this->input->post('endDate');
-        $data = $this->AnggotaModel->filterData($search, $startDate, $endDate);
-        $this->load->view('laporan/laporan_anggota', array('data' => $data));
-    }
-    public function printDataPeminjaman() {
-        
-        $search = $this->input->post('search');
-        $startDate = $this->input->post('startDate');
-        $endDate = $this->input->post('endDate');
-        $data = $this->PeminjamanModel->filterData($search, $startDate, $endDate);
-        $this->load->view('laporan/laporan_peminjamanbuku', array('data' => $data));
-    }
-    public function printDataPengembalian() {
-        
-        $search = $this->input->post('search');
-        $startDate = $this->input->post('startDate');
-        $endDate = $this->input->post('endDate');
-        $data = $this->PengembalianModel->filterData($search, $startDate, $endDate);
-        $this->load->view('laporan/laporan_pengembalianbuku', array('data' => $data));
-    }
-    public function printDataBuku() {
-        
-        $search = $this->input->post('name_filter');
 
-        $data = $this->BukuModel->filterData($search);
-        $this->load->view('laporan/laporan_buku', array('data' => $data));
+    public function printData()
+    {
+
+        $search = $this->input->post('search');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $data['start'] = $startDate;
+        $data['end'] = $endDate;
+        $data['data'] = $this->BTamuModel->filterData($search, $startDate, $endDate);
+        $this->load->view('laporan/laporan_btamu', $data);
     }
-      
-      
+    public function printDataAnggota()
+    {
+
+        $search = $this->input->post('search');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $data['start'] = $startDate;
+        $data['end'] = $endDate;
+        $data['result'] = $this->AnggotaModel->filterData($search, $startDate, $endDate);
+        $this->load->view('laporan/laporan_anggota', $data);
+    }
+    public function printDataPeminjaman()
+    {
+
+        $search = $this->input->post('search');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $data['start'] = $startDate;
+        $data['end'] = $endDate;
+        $data['data'] = $this->PeminjamanModel->filterData($search, $startDate, $endDate);
+        $this->load->view('laporan/laporan_peminjamanbuku', $data);
+    }
+    public function printDataPengembalian()
+    {
+
+        $search = $this->input->post('search');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $data['start'] = $startDate;
+        $data['end'] = $endDate;
+        $data['data'] = $this->PengembalianModel->filterData($search, $startDate, $endDate);
+        $this->load->view('laporan/laporan_pengembalianbuku', $data);
+    }
+    public function printDataBuku()
+    {
+
+        $search = $this->input->post('id_penerbit');
+        $data['search'] = $search;
+        $data['nama_penerbit'] = $this->db->where('id_penerbit', $search)
+            ->get('penerbit')
+            ->row()
+            ->penerbit;
+        $data['data'] = $this->BukuModel->filterData($search);
+        $this->load->view('laporan/laporan_buku', $data);
+    }
+
+
 }

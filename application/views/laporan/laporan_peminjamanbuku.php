@@ -30,40 +30,6 @@
                 <td colspan="3" style="text-align: center;">Email:smkn1rtu30301489@gmail.com</td>
             </tr>
         </table>
-
-        <hr class="solid">
-        <div style="text-align: center;">
-            <h4>LAPORAN PEMINJAMAN BUKU PERPUSTAKAAN</h4>
-            <h4>PER TANGGAL</h4>
-        </div>
-        <table border="1" style="width: 100%;">
-            <tr>
-                <th>No</th>
-                <th>Kode Pinjam</th>
-                <th>Tanggal Pinjam</th>
-                <th>NISN</th>
-                <th>Nama Anggota</th>
-                <th>ISBN</th>
-                <th>Judul Buku</th>
-                <th>Lama Pinjam</th>
-
-            </tr>
-            <?php
-            $no = 1;
-            foreach ($data as $a) {
-                echo "<tr>
-                    <td>" . $no++ . "</td>
-                    <td>" . $a->kd_pinjam . "</td>
-                    <td>" . $a->tanggal_pinjam . "</td>
-                    <td>" . $a->nisn . "</td>
-                    <td>" . $a->nama_anggota . "</td>
-                    <td>" . $a->isbn . "</td>  
-                    <td>" . $a->judul_buku . "</td>   
-                    <td>" . $a->lama_pinjam . " Hari </td>                       
-                    </tr>";
-            }
-            ?>
-        </table>
         <?php
         function tanggal_indonesia($tanggal){
             $bulan = array (
@@ -93,6 +59,40 @@
          
         
     ?>
+        <hr class="solid">
+        <div style="text-align: center;">
+            <h4>LAPORAN PEMINJAMAN BUKU PERPUSTAKAAN</h4>
+            <h4>PER TANGGAL <?php echo tanggal_indonesia($start); ?> - <?php echo tanggal_indonesia($end); ?></h4>
+        </div>
+        <table border="1" style="width: 100%;">
+            <tr>
+                <th>No</th>
+                <th>Kode Pinjam</th>
+                <th>Tanggal Pinjam</th>
+                <th>NISN</th>
+                <th>Nama Anggota</th>
+                <th>ISBN</th>
+                <th>Judul Buku</th>
+                <th>Lama Pinjam</th>
+
+            </tr>
+            <?php
+            $no = 1;
+            foreach ($data as $a) {
+                echo "<tr>
+                    <td>" . $no++ . "</td>
+                    <td>" . $a->kd_pinjam . "</td>
+                    <td>" . $a->tanggal_pinjam . "</td>
+                    <td>" . $a->nisn . "</td>
+                    <td>" . $a->nama_anggota . "</td>
+                    <td>" . $a->isbn . "</td>  
+                    <td>" . $a->judul_buku . "</td>   
+                    <td>" . $a->lama_pinjam . " Hari </td>                       
+                    </tr>";
+            }
+            ?>
+        </table>
+        
 
         <div  style="text-align: center;float: right;">
             <h4>Rantau, <?php echo tanggal_indonesia(date('Y-m-d'));?><br>
